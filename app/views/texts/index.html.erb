@@ -1,17 +1,39 @@
 <%= link_to "New Text", new_text_path %>
 <% @texts.each do |text| %>
   <div id="editor1" contenteditable="true">
-  	<p><%= text.description.html_safe %></p>
+  	<%= text.description.html_safe %>
   </div>
   <%= link_to "Edit Text", edit_text_path(text) %>
   <% if text != @texts.last %>
   <hr />
   <% end %>
 <% end %>
+<% @texts.each do |text| %>
+<%= form_for text do |f| %>
+  <div>
+    <%= f.hidden_field :description, rows: 10,  id: 'yea'  %>
+  </div>
+  <div>
+    <%= f.submit "Salvar Mudanças", id: "teste", hidden: true%>
+  </div>
+<% end %>
+<% end %>
 
 
 <script>
     // Turn off automatic editor creation first.
+
     CKEDITOR.disableAutoInline = true;
-    CKEDITOR.inline( 'editor1' );
+    CKEDITOR.inline( 'editor1', {
+            on: {
+                blur: function( event ) {
+            var data = CKEDITOR.instances.editor1.getData();
+            document.getElementById("yea").value=data;
+            $('#teste').trigger( "click" );
+              }
+            }
+        });
+  
+
 </script>
+

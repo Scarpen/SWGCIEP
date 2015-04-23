@@ -11,6 +11,11 @@ class TextsController < ApplicationController
     @text = Text.new
   end
 
+  def save_inline(data)
+    @text = Text.find(1)
+    @text.description = data
+    @test.save
+  end
   def create
     @text = Text.new(text_params)
     if @text.save
