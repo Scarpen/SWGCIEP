@@ -1,0 +1,18 @@
+<% if @text.errors.any? %>
+  <ul>
+    <%= @text.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @text do |f| %>
+  <div>
+    <%= f.label :description %>
+  </div>
+  <div>
+    <%= f.cktext_area :description, rows: 10 %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<%= link_to "New Text", new_text_path %>
+<% @texts.each do |text| %>
+  <div id="editor1" contenteditable="true">
+  	<p><%= text.description.html_safe %></p>
+  </div>
+  <%= link_to "Edit Text", edit_text_path(text) %>
+  <% if text != @texts.last %>
+  <hr />
+  <% end %>
+<% end %>
+
+
+<script>
+    // Turn off automatic editor creation first.
+    CKEDITOR.disableAutoInline = true;
+    CKEDITOR.inline( 'editor1' );
+</script>

@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150422185708) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "texts", force: true do |t|
-    t.string   "description"
+    t.text     "description"
     t.integer  "menu_id"
     t.datetime "created_at"
     t.datetime "updated_at"
