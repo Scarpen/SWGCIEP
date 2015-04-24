@@ -1,6 +1,6 @@
 <%= link_to "New Text", new_text_path %>
 <% @texts.each do |text| %>
-  <div id="editor1" contenteditable="true">
+  <div id="<%=text.id%>" contenteditable="true">
   	<%= text.description.html_safe %>
   </div>
   <%= link_to "Edit Text", edit_text_path(text) %>
@@ -11,10 +11,10 @@
 <% @texts.each do |text| %>
 <%= form_for text do |f| %>
   <div>
-    <%= f.hidden_field :description, rows: 10,  id: 'yea'  %>
+    <%= f.hidden_field :description, rows: 10,  id: "#{text.id}_field"  %>
   </div>
   <div>
-    <%= f.submit "Salvar Mudanças", id: "teste", hidden: true%>
+    <%= f.submit "Salvar Mudanças", id: "#{text.id}_submit", hidden: true%>
   </div>
 <% end %>
 <% end %>
@@ -24,16 +24,16 @@
     // Turn off automatic editor creation first.
 
     CKEDITOR.disableAutoInline = true;
-    CKEDITOR.inline( 'editor1', {
+    <% @texts.each do |text| %>
+    CKEDITOR.inline("<%=text.id%>", {
             on: {
-                blur: function( event ) {
-            var data = CKEDITOR.instances.editor1.getData();
-            document.getElementById("yea").value=data;
-            $('#teste').trigger( "click" );
+              blur: function( event ) {
+                var data = event.editor.getData();
+                document.getElementById("<%=text.id%>_field").value=data;
+                $("#<%=text.id%>_submit").trigger( "click" );
               }
             }
         });
-  
-
+    <% end %>
 </script>
 

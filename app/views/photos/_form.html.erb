@@ -1,0 +1,19 @@
+<% if @photo.errors.any? %>
+	<ul>
+		<%= @photo.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+		<% end %>
+	</ul>
+<% end %>
+<%= simple_form_for @photo do |f| %>
+	<div>
+		<%= f.input_field :image %>
+	</div>
+	<div>
+		<%= f.input :description %>
+	</div>
+
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>

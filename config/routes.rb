@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :photos
+
   resources :texts do
     collection do
       get 'save_inline'

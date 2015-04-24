@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'rmagick'
 gem 'simple_form'
 gem 'pg'
 gem 'therubyracer'
