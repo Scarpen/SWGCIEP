@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :pages
+
+  resources :menus
+
   resources :photos
 
   resources :texts do

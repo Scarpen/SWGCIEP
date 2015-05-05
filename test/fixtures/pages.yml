@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  layout_id: 1
+  user_id: 1
+  header: MyString
+  logo: MyString
+  recommends: 1
+
+two:
+  layout_id: 1
+  user_id: 1
+  header: MyString
+  logo: MyString
+  recommends: 1
