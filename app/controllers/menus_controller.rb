@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-	def index
+  def index
     @texts = Menu.order("created_at DESC")
   end
 

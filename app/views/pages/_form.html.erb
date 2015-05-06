@@ -1,0 +1,6 @@
+<%= form_for @page do |f| %>  
+  <%= f.fields_for :menus do |builder| %>
+    <%= render "menu_fields", :f => builder %>
+  <% end %>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

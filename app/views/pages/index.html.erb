@@ -1,0 +1,8 @@
+<%= link_to "New Text", new_page_path %>
+<% @pages.each do |page| %>
+  <div>
+  	<%= page.id %>
+  </div>
+  <%= link_to "Edit Text", edit_page_path(page) %>
+  <hr />
+<% end %>

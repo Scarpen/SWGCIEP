@@ -1,7 +1,7 @@
 class Menu < ActiveRecord::Base
-	belongs_to :menu, :as => :father
-	has_many :menu, :as => :submenu, :dependent => :destroy
+	has_many :submenus, :class_name => "Menu", :foreign_key => "father_id", :dependent => :destroy
+  	belongs_to :menu, :class_name => "Menu"
 	belongs_to :page
-	has_many :photo, :dependent => :destroy
+	has_many :photos, :dependent => :destroy
 	has_one :text, :dependent => :destroy
 end
