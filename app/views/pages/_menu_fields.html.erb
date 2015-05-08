@@ -2,17 +2,10 @@
   <%= f.label :name, "Menu" %><br />
   <%= f.text_field :name %><br />
   <%= f.hidden_field :_destroy %>
-   <%= f.label :tipo %><br />
-   <%= f.radio_button :tipo, 1%>
-    <%= f.label :tipo, "Menu Pai", :value => 2  %>
-    <%= f.radio_button :tipo, 2%>
-    <%= f.label :tipo, "Galeria", :value => 2  %>
-    <%= f.radio_button :tipo, 3%>
-    <%= f.label :tipo, "Texto", :value => 3 %>
-
   <%= link_to_remove_fields "remove", f %>
 
 </p>
+
 <%= f.fields_for :submenus do |builder| %>
   <%= render 'submenu_fields', :f => builder %>
 <% end %>
