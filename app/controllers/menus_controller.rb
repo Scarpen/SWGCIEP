@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   def index
-    @texts = Menu.order("created_at DESC")
+    @menus = Menu.order("created_at DESC")
   end
 
   def show
@@ -36,6 +36,6 @@ class MenusController < ApplicationController
 private
 
   def menu_params
-    params.require(:menu).permit(:name, :father_id, :tipo, :page_id)
+    params.require(:menu).permit(:name, :father_id, :tipo, :page_id, submenus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy])
   end
 end

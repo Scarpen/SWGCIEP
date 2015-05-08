@@ -12,6 +12,9 @@ class PagesController < ApplicationController
     menu = @page.menus.build
     menu.name = "Menu Inicial"
     menu.tipo = 1
+    menu.submenus.build
+    menu.name = "Menu Inicial"
+    menu.tipo = 1
   end
 
   def create
@@ -39,6 +42,6 @@ class PagesController < ApplicationController
 private
 
   def page_params
-    params.require(:page).permit(:layout_id, :user_id, :header, :logo, :recommends, menus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy])
+    params.require(:page).permit(:layout_id, :user_id, :header, :logo, :recommends, menus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy, submenus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy]])
   end
 end
