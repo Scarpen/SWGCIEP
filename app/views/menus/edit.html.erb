@@ -1,0 +1,54 @@
+<h3> Editando menu: <%= @menu.name %> </h3>
+<%= form_for @menu do |f| %>
+    <%= f.label :tipo %><br />
+    <%= f.label :tipo, "Texto", :value => "2"  %>
+    <%= f.radio_button :tipo, 2, :checked => true, :id => "text" %>
+    <%= f.label :tipo, "Galeria", :value => "3" %>
+    <%= f.radio_button :tipo, 3, :id => "gallery" %>
+
+    <div id="text_input"> 
+    <%= f.fields_for :text do |builder| %>
+      <%= render "text_fields", :f => builder %>
+    <% end %>
+    </div>
+    <div id="photos"> 
+    <%= f.fields_for :photos do |builder| %>
+      <%= render "photo_fields", :f => builder %>
+    <% end %>
+    <p><%= link_to_add_fields "Adicionar Foto", f, :photos %></p>
+    </div>
+<%= f.submit %>
+<% end %>
+
+
+<script>
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fields").hide();
+}
+</script>
+
+<script>
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).parent().before(content.replace(regexp, new_id));
+}
+</script>
+
+<script>
+toggleURLInput();
+document.getElementById("text").onclick = toggleURLInput;
+document.getElementById("gallery").onclick = toggleURLInput;
+
+function toggleURLInput(){
+  if ($('#text').is(':checked')) { 
+    $('#text_input').show();
+    $('#photos').hide();
+  } else {
+    $('#text_input').hide();
+    $('#photos').show();
+  }
+}
+</script>
+

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :pages
-
+    
   resources :menus
 
   resources :photos
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root to: 'home#index'

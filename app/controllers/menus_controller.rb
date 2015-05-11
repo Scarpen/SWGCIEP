@@ -9,12 +9,15 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+
   end
 
   def create
     @menu = Menu.new(menu_params)
+
     if @menu.save
       redirect_to menus_path, notice: "The menu has been successfully created."
+        
     else
       render action: "new"
     end
@@ -22,6 +25,10 @@ class MenusController < ApplicationController
 
   def edit
     @menu = Menu.find(params[:id])
+    if @menu.text == nil
+      @menu.build_text
+    end
+    
   end
 
   def update
@@ -36,6 +43,9 @@ class MenusController < ApplicationController
 private
 
   def menu_params
-    params.require(:menu).permit(:name, :father_id, :tipo, :page_id, submenus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy])
+    params.require(:menu).permit(:name, :father_id, :tipo, :page_id, 
+      submenus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy], 
+      text_attributes: [:id, :menu_id, :description, :_destroy], 
+      photos_attributes: [:id, :menu_id, :image, :description, :_destroy])
   end
 end

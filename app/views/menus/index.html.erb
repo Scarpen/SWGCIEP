@@ -1,7 +1,17 @@
-<% @menus.each do |menu| %>
-  <div>
-  	<%= menu.id %>
-  	<%= menu.name %>
-  </div>
-  <hr />
-<% end %>
+	<% @menus.each do |menu| %>
+		<% if menu.father_id == nil%>
+			<% if menu.submenus.size > 0 %>
+				<%= menu.name %>
+				<div style="margin-left: 20px">
+					<% menu.submenus.each do |submenu| %>
+						<%=	submenu.name%>
+						<%= link_to "Editar Conteudo", edit_menu_path(submenu) %><br>
+					<% end %>
+				</div>
+			<% else %>
+				<%= menu.name %>
+				<%= link_to "Editar Conteudo", edit_menu_path(menu) %><br>
+			<% end %>
+			<hr />
+		<% end %>
+	<% end %>
