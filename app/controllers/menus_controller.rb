@@ -34,7 +34,7 @@ class MenusController < ApplicationController
   def update
     @menu = Menu.find(params[:id])
     if @menu.update_attributes(menu_params)
-      redirect_to menus_path, notice: "The menu has been successfully updated."
+      redirect_to conteudo_pages_path, notice: "The menu has been successfully updated."
     else
       render action: "edit"
     end

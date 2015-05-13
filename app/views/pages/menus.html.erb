@@ -1,0 +1,27 @@
+<%= render "painel" %>
+
+
+
+<%= form_for @page do |f| %>  
+  <%= f.fields_for :menus do |builder| %>
+    <%= render "menu_fields", :f => builder %>
+  <% end %>
+	<p><%= link_to_add_fields "Adicionar Menu", f, :menus %></p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+
+
+<script>
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fields").hide();
+}
+</script>
+
+<script>
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).parent().before(content.replace(regexp, new_id));
+}
+</script>

@@ -15,6 +15,13 @@ class PagesController < ApplicationController
     menu.submenus.build
     
   end
+  def conteudo
+    @menus = current_user.page.menus
+  end
+  def menus
+    @page = current_user.page
+
+  end
 
   def create
     @page = Page.new(page_params)
@@ -39,22 +46,20 @@ class PagesController < ApplicationController
   def update
     @page = Page.find(params[:id])
     if @page.update_attributes(page_params)
-      redirect_to pages_path, notice: "The page has been successfully updated."
+       @page.menus.each do |menu|
+        if menu.submenus.size > 0
+          menu.tipo = 1
+        else
+          menu.tipo = 2
+        end
+      end
+      if @page.save
+        redirect_to menus_pages_path, notice: "The page has been successfully created."
+      end
     else
       render action: "edit"
     end
-    @page.menus.each do |menu|
-      if menu.submenus.size > 0
-        menu.tipo = 1
-      else
-        menu.tipo = 2
-      end
-    end
-    if @page.save
-      redirect_to pages_path, notice: "The page has been successfully created."
-    else
-      render action: "new"
-    end
+    
   end
 
 private

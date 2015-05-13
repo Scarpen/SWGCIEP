@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :pages
+  resources :pages do
+    collection do
+      get 'menus'
+      get 'conteudo'
+    end
+  end
     
   resources :menus
 
