@@ -1,0 +1,16 @@
+<ul>
+	<% @page.menus.each do |m| %> 
+		<li> <%= m.name %> </li>
+			<% m.submenus.each do |sub|%>
+			<li style="margin-left: 20px"> <%= sub.name %> </li>
+			<% end %>
+	<% end %>
+</ul>
+
+<%= @page.recommends %>
+	<% if @voted != true %>
+		<%= link_to "Votar", {:action => 'vote', :controller => 'pages', :page => @page.id} %>
+
+	<% else %>
+		<p> Você já votou </p>
+	<% end %>

@@ -1,0 +1,31 @@
+<div class="texto">
+    
+  <div id="text" contenteditable="true">
+  	<%= @menu.text.description.html_safe %>
+  </div>
+
+<%= form_for @menu.text do |f| %>
+  <div>
+    <%= f.hidden_field :description, rows: 10,  id: "text_field"  %>
+  </div>
+  <div>
+    <%= f.submit "Salvar Mudanças", id: "text_submit", hidden: true%>
+  </div>
+<% end %>
+
+</div>
+
+<script>
+    // Turn off automatic editor creation first.
+
+    CKEDITOR.disableAutoInline = true;
+    CKEDITOR.inline("text", {
+            on: {
+              blur: function( event ) {
+                var data = event.editor.getData();
+                document.getElementById("text_field").value=data;
+                $("#text_submit").trigger( "click" );
+              }
+            }
+        });
+</script>

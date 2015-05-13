@@ -27,7 +27,7 @@ class TextsController < ApplicationController
   def update
     @text = Text.find(params[:id])
     if @text.update_attributes(text_params)
-      redirect_to texts_path, notice: "The text has been successfully updated."
+      redirect_to @text.menu, notice: "The text has been successfully updated."
     else
       render action: "edit"
     end

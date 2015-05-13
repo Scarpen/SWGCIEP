@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     collection do
       get 'menus'
       get 'conteudo'
+      get 'vote'
     end
   end
     

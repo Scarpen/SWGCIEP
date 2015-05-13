@@ -15,9 +15,25 @@ class PagesController < ApplicationController
     menu.submenus.build
     
   end
+
+  def vote
+    @page = Page.find(params[:page])
+    @page.recommends = @page.recommends.to_i + 1
+    if cookies[:VoteInstitute]
+      cookies.permanent[:VoteInstitute] << @page.id
+    else
+      cookies.permanent[:VoteInstitute] = Array.new
+      cookies.permanent[:VoteInstitute] << 9999999999999999
+      cookies.permanent[:VoteInstitute] << @page.id
+    end
+    @page.save
+    redirect_to menus_pages_path
+  end
+
   def conteudo
     @menus = current_user.page.menus
   end
+
   def menus
     @page = current_user.page
 
@@ -65,7 +81,7 @@ class PagesController < ApplicationController
 private
 
   def page_params
-    params.require(:page).permit(:layout_id, :user_id, :header, :logo, :recommends, 
+    params.require(:page).permit(:id, :layout_id, :user_id, :header, :logo, :recommends, 
       menus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy, 
         submenus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy]])
   end

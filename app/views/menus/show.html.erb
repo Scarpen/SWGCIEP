@@ -1,0 +1,20 @@
+<h2> <%= @menu.name %> </h2>
+
+<%= render "menu_column" %>
+<% if cookies.permanent[:edit] != "true" %>
+	<h1> False </h1>
+<% end %>
+
+<% if cookies.permanent[:edit] == "true" %>
+	<h1> True </h1>
+<% end %>
+
+<div class="row">
+    <%if @menu.tipo == 2 %>
+        <%= render 'text_view' %>
+    <% end %>
+    <%if @menu.tipo == 3 %>
+        <%= render 'gallery_view' %>
+    <% end %>
+    
+</div>

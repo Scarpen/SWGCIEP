@@ -5,6 +5,21 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
+    if @menu.tipo == 1
+      @page = @menu.page 
+    else
+      @page = @menu.father.page
+    end
+    @voted == false
+    if cookies[:VoteInstitute]
+
+      cookies[:VoteInstitute].split("&").each do |vote|
+        if vote == @page.id.to_s
+          @voted = true
+        end
+      end
+    end
+
   end
 
   def new
@@ -25,6 +40,7 @@ class MenusController < ApplicationController
 
   def edit
     @menu = Menu.find(params[:id])
+
     if @menu.text == nil
       @menu.build_text
     end
