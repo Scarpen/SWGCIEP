@@ -18,8 +18,17 @@ class MenusController < ApplicationController
           @voted = true
         end
       end
+
+      @comments = @page.comments
+      @comment = Comment.new
     end
 
+  end
+
+  def comments_respond
+    @comment = Comment.new
+    @menu = params[:menu_id]
+    @father = params[:father_id]
   end
 
   def new

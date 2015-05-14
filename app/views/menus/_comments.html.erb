@@ -1,0 +1,56 @@
+<h1>Listing comments</h1>
+
+    <% @comments.each do |comment| %>
+        <div>
+        <p>
+        <strong>Commenter:</strong>
+        <%= comment.author %>
+        </p>
+        <p>
+        <strong>Comment:</strong>
+        <%= comment.comment %>
+        </p>
+        <p>
+        <%= link_to 'Respond', comments_respond_menus_path(:father_id => comment.id, :menu_id => @menu.id)  %>
+        <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+        <div>
+           <% comment.responds.each do |respond| %>
+              <div style="margin-left: 20px">
+              <p>
+              <strong>Commenter:</strong>
+                <%= respond.author %>
+              </p>
+              <p>
+              <strong>Comment:</strong>
+                <%= respond.comment %>
+              </p>
+              <p>
+                <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </p>
+    
+
+
+        </div>
+        <% end %>
+      </div>
+<br>
+
+    <% end %>
+<br>
+<%= simple_form_for(@comment, :url => comments_path(@comment, :menu_id => @menu.id))  do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :comment %>
+    <%= f.input :author %>
+    <%= f.input :father_id, as: :hidden%>
+    <%= f.input :page_id, as: :hidden, input_html: {value: @page.id} %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit  %>
+
+  </div>
+<% end %>

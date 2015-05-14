@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+
   resources :pages do
     collection do
       get 'menus'
@@ -7,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
     
-  resources :menus
+  resources :menus do
+    collection do
+      get 'comments_respond'
+    end
+  end
 
   resources :photos
 
