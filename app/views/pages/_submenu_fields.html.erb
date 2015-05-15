@@ -1,6 +1,7 @@
-<p class="fields">
-  <%= f.label :name, "Submenu" %>
-  <%= f.text_field :name %>
+<p class="fields" style="padding-top: 0px;">
+<div style="margin-left: 40px;">
+  <%= f.input :name, label: "Submenu", input_html: {style: "width: 30%"} %>
   <%= f.hidden_field :_destroy %>
-  <%= link_to_remove_fields "remove", f %>
+  <%= link_to_remove_fields "Remover", f %>
+</div>
 </p>

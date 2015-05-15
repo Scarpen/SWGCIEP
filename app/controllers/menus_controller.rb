@@ -5,7 +5,7 @@ class MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
-    if @menu.tipo == 1
+    if @menu.page != nil
       @page = @menu.page 
     else
       @page = @menu.father.page

@@ -6,8 +6,15 @@ Rails.application.routes.draw do
       get 'menus'
       get 'conteudo'
       get 'vote'
+      get 'list_institutes'
+      get 'registration'
+      post 'new_user'
+      post 'update_user'
+      get 'edit_user'
     end
   end
+
+
     
   resources :menus do
     collection do
@@ -27,7 +34,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root to: 'home#index'
+    root 'home#index'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

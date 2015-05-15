@@ -1,6 +1,6 @@
-<h2>Sign up</h2>
+<h2>Cadastrar Instituicao</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(@user, url: new_user_pages_path) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -15,8 +15,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Cadastrar" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

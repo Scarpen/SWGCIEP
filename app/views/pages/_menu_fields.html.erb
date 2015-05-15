@@ -1,12 +1,12 @@
 <p class="fields">
-  <%= f.label :name, "Menu" %><br />
-  <%= f.text_field :name %><br />
+  <%= f.input :name, label: "Menu", input_html: {style: "width: 30%"} %><br />
   <%= f.hidden_field :_destroy %>
-  <%= link_to_remove_fields "remove", f %>
+  <%= link_to_remove_fields "Remover", f %>
 
 </p>
 
 <%= f.fields_for :submenus do |builder| %>
   <%= render 'submenu_fields', :f => builder %>
 <% end %>
+
 <p><%= link_to_add_fields "Add Submenu", f, :submenus %></p>

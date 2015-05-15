@@ -1,23 +1,33 @@
-<div class="texto">
-    
-  <div id="text" contenteditable="true">
-  	<%= @menu.text.description.html_safe %>
-  </div>
-
-<%= form_for @menu.text do |f| %>
-  <div>
-    <%= f.hidden_field :description, rows: 10,  id: "text_field"  %>
-  </div>
-  <div>
-    <%= f.submit "Salvar Mudanças", id: "text_submit", hidden: true%>
+<% if @menu.text != nil %>
+  <div class="texto">
+        <% if current_user %>
+          <% if current_user.page == @page %>
+            <div id="text" contenteditable="true">
+          <% else %>
+            <div id="text" contenteditable="false">
+          <% end %>
+        <% end %>
+    	       <%= @menu.text.description.html_safe %>
+            </div>
+  <%= form_for @menu.text do |f| %>
+    <div>
+      <%= f.hidden_field :description, rows: 10,  id: "text_field"  %>
+    </div>
+    <div>
+      <%= f.submit "Salvar Mudanças", id: "text_submit", hidden: true%>
+    </div>
+  <% end %>
   </div>
 <% end %>
 
-</div>
 
+
+
+
+<% if current_user %>
+  <% if current_user.page == @page %>
 <script>
     // Turn off automatic editor creation first.
-
     CKEDITOR.disableAutoInline = true;
     CKEDITOR.inline("text", {
             on: {
@@ -29,3 +39,5 @@
             }
         });
 </script>
+<% end %>
+<% end %>

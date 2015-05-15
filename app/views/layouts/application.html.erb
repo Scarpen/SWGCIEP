@@ -48,13 +48,22 @@
         <a class="navbar-brand" href="<%= root_path %>">SWGCIEP</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
+            <li> <%= link_to 'Listar institutos', list_institutes_pages_path %> </li>
           <%if current_user %>
+            <%if current_user.role.name == "admin" %>
+              <li><%= link_to "Novo Usuario", registration_pages_path %></li>
+            <%elsif current_user.role.name == "institute" %>
+              <li><%= link_to "Administrar Pagina", menus_pages_path %></li>
+            <% end %>
             <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  </li>
-            <li style="color: white"> Logado como: <%= current_user.email %> </li>
+            <li style="color: white"> Logado como: <%= current_user.email%> </li>
+
           <% else %>
-            <li><%= link_to "Novo Usuario", new_user_registration_path %></li>
+            
             <li><%= link_to "Login", new_user_session_path  %></li>
           <%end%>
+
+
           </ul>
         </div>
       </div>

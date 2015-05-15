@@ -1,6 +1,13 @@
-	<%= render 'painel' %>
-
-	<% @menus.each do |menu| %>
+<div class="container-fluid">
+  <div class="row row-offcanvas row-offcanvas-left">
+    <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+              <ul class="nav nav-sidebar">
+                <%= render "painel" %>
+              </ul>
+          </div>
+    <div class="col-md-9">
+      <h2 style="text-align: center;"> Gerenciar Conteudo </h2>
+        <% @menus.each do |menu| %>
 		<% if menu.father_id == nil%>
 			<% if menu.submenus.size > 0 %>
 				<%= menu.name %>
@@ -17,3 +24,8 @@
 			<hr />
 		<% end %>
 	<% end %>
+    </div>
+  </div>
+</div>
+
+	

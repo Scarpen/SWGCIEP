@@ -1,4 +1,4 @@
-<h1>Listing comments</h1>
+<h1>Comentarios</h1>
 
     <% @comments.each do |comment| %>
         <div>
@@ -42,8 +42,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :comment %>
     <%= f.input :author %>
+    <%= f.input :comment, as: :text %>
+    
     <%= f.input :father_id, as: :hidden%>
     <%= f.input :page_id, as: :hidden, input_html: {value: @page.id} %>
 

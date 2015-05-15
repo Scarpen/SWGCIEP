@@ -15,8 +15,6 @@ class RegistrationsController < Devise::RegistrationsController
         end
       end
       page.save
-
-      resource.phone = 8080
       resource.save
   end
 

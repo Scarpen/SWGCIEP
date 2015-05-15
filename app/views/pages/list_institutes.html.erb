@@ -1,0 +1,26 @@
+	<table class="table">
+		<tr>
+			<th> Nome da Instituicao </th>
+			<th> Responsavel</th>
+			<th> Telefone </th>
+			<th> </th>
+		</tr>
+	<% @institutes.each do |institute| %>
+		<tr>
+			<td><%= institute.name_institute %></td>
+			<td><%= institute.name_responsible %></td>
+			<td><%= institute.phone %></td>
+			<%if institute.page.menus.first.submenus.first == nil %>
+				<td><%= link_to "Mostrar Pagina", institute.page.menus.first %></td>
+			<% else %>
+				<td><%= link_to "Mostrar Pagina", institute.page.menus.first.submenus.first %></td>
+			<% end %>
+			<% if current_user %>
+				<% if current_user.role.name == "admin" %>
+				<td><%= link_to "Apagar Conta", registration_path(institute), data: { confirm: "Voce tem certeza?" }, method: :delete %> </td>
+				<% end %>
+			<% end %>
+		</tr>
+	<% end %>
+
+	</table>

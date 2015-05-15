@@ -1,17 +1,12 @@
 <ul>
 	<% @page.menus.each do |m| %> 
+		<% if m.submenus.first == nil %>
+		<li> <%= link_to "#{m.name}", m %> </li>
+		<% else %>
 		<li> <%= m.name %> </li>
 			<% m.submenus.each do |sub|%>
-			<li style="margin-left: 20px"> <%= sub.name %> </li>
+			<li style="margin-left: 20px"> <%= link_to "#{sub.name}", sub %> </li>
 			<% end %>
+		<% end %>
 	<% end %>
 </ul>
-
-<%= @page.recommends %>
-	<% if @voted != true %>
-		<%= link_to "Votar", {:action => 'vote', :controller => 'pages', :page => @page.id} %>
-
-	<% else %>
-		<p> Você já votou </p>
-	<% end %>
-<%= cookies[:VoteInstitute] %>

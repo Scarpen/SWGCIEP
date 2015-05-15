@@ -1,21 +1,24 @@
-<h2> <%= @menu.name %> </h2>
 
-<%= render "menu_column" %>
-<% if cookies.permanent[:edit] != "true" %>
-	<h1> False </h1>
-<% end %>
 
-<% if cookies.permanent[:edit] == "true" %>
-	<h1> True </h1>
-<% end %>
 
-<div class="row">
-    <%if @menu.tipo == 2 %>
-        <%= render 'text_view' %>
-    <% end %>
-    <%if @menu.tipo == 3 %>
-        <%= render 'gallery_view' %>
-    <% end %>
-    
+<div class="container-fluid">
+	<div class="row row-offcanvas row-offcanvas-left">
+		<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+	            <ul class="nav nav-sidebar">
+	              <%= render "menu_column" %>
+	            </ul>
+	        </div>
+		<div class="col-md-9">
+			<h2 style="text-align: center;"> <%= @menu.name %> </h2>
+		    <%if @menu.tipo == 2 %>
+		        <%= render 'text_view' %>
+		    <% end %>
+		    <%if @menu.tipo == 3 %>
+		        <%= render 'gallery_view' %>
+		    <% end %>
+		</div>
+		<div class="col-md-12">
+		<%= render "comments" %>
+		</div>
+	</div>
 </div>
-<%= render "comments" %>
