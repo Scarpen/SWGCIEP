@@ -10,3 +10,9 @@
 		<% end %>
 	<% end %>
 </ul>
+<%= @page.recommends %>
+<% if @voted != true %>
+	<%= link_to "Recomendar Instituicao", {action: "vote", controller: "pages", page: @page.id, menu: @menu.id } %>
+<% else %>
+	<p> Voce ja recomendou essa instituicao </p>
+<% end %>

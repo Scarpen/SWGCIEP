@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
   end
+
   def registration
     @user = User.new
   end
@@ -59,16 +60,15 @@ class PagesController < ApplicationController
 
   def vote
     @page = Page.find(params[:page])
+    @menu = Menu.find(params[:menu])
     @page.recommends = @page.recommends.to_i + 1
-    if cookies[:Vo1teInstitute]
-      cookies.permanent[:VoteInstitute] << @page.id
+    if cookies.permanent[:VoteInstitute]
+      cookies.permanent[:VoteInstitute] = "#{cookies[:VoteInstitute]}&#{@page.id}"
     else
-      cookies.permanent[:VoteInstitute] = Array.new
-      cookies.permanent[:VoteInstitute] << 9999999999999999
-      cookies.permanent[:VoteInstitute] << @page.id
+      cookies.permanent[:VoteInstitute] = "#{@page.id}"
     end
     @page.save
-    redirect_to menus_pages_path
+    redirect_to @menu
   end
 
   def conteudo
@@ -102,6 +102,35 @@ class PagesController < ApplicationController
 
   def list_institutes
     @institutes = User.where("role_id = 2")
+    @neighborhoods = User.pluck("DISTINCT neighborhood")
+    @neighborhoods << "Todos"
+    @neighborhoods.reverse!
+    @filters = params[:list_institutes]
+    if @filters
+      
+       
+      @institutes = @institutes.search("neighborhood",
+        @filters[:neighborhood]) if @filters[:neighborhood] != "Todos" if @filters[:neighborhood].present? 
+      @institutes = @institutes.searchint("elementary_school",
+        @filters[:elementary_school]) if @filters[:elementary_school] == "1" if @filters[:elementary_school].present?
+      @institutes = @institutes.searchint("middle_school",
+        @filters[:middle_school]) if @filters[:middle_school] == "1" if @filters[:middle_school].present?
+      @institutes = @institutes.searchint("high_school",
+        @filters[:high_school]) if @filters[:high_school] == "1" if @filters[:high_school].present?
+      @institutes = @institutes.search("name_institute", @filters[:search]) if @filters[:search].present?
+      @institutes = @institutes.searchint("religion",@filters[:religion]) if @filters[:religion].present?
+      @institutes = @institutes.search("physical",@filters[:physical]) if @filters[:physical].present?
+      @institutes = @institutes.search("hearing",@filters[:hearing]) if @filters[:hearing].present?
+      @institutes = @institutes.search("mental",@filters[:mental]) if @filters[:mental].present?
+      @institutes = @institutes.search("view",@filters[:view]) if @filters[:view].present?
+    else
+      @filters = Hash.new
+      @filters[:neighborhood] = "Todos"
+      @filters[:search] = ""
+      @filters[:elementary_school] = "0"
+      @filters[:middle_school] = "0"
+      @filters[:high_school] = "0"
+    end
   end
 
   def update
@@ -129,6 +158,8 @@ private
         submenus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy]])
   end
   def user_params
-    params.require(:user).permit(:id, :email, :password, :password_confirmation, :name_institute, :name_responsible,:phone, :role_id)
+    params.require(:user).permit(:id, :email, :password, :password_confirmation, :name_institute, 
+      :name_responsible,:phone, :role_id, :middle_school, :elementary_school, :high_school,
+      :neighborhood, :religion, :physical, :hearing, :mental, :view)
   end
 end

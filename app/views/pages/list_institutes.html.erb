@@ -1,3 +1,14 @@
+<%= simple_form_for :list_institutes do |f|%>
+  <%= %>
+  <%= f.input :neighborhood, as: :radio_buttons,label:"Bairro", collection: @neighborhoods, :checked => @filters[:neighborhood] %>
+  <%= f.input :search,label:"Nome", input_html: { value: @filters[:search] } %>
+  <%= f.input :elementary_school, as: :boolean, label: "1º ao 5º ano", input_html: {checked: verify_value(@filters[:elementary_school])} %>
+  <%= f.input :middle_school, as: :boolean, label: "6º ao 9º ano", input_html: {checked: verify_value(@filters[:middle_school])} %>
+  <%= f.input :high_school, as: :boolean, label: "Ensino Medio", input_html: {checked: verify_value(@filters[:high_school])} %>
+
+  <%= f.submit "Filtrar" %>
+<% end %>
+
 	<table class="table">
 		<tr>
 			<th> Nome da Instituicao </th>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'conteudo'
       get 'vote'
       get 'list_institutes'
+      post 'list_institutes'
       get 'registration'
       post 'new_user'
       post 'update_user'

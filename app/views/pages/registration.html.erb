@@ -4,13 +4,31 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :name_institute, required: true %>
-    <%= f.input :name_responsible, required: true %>
-    <%= f.input :phone, required: true %>
-    <%= f.input :role_id, as: :hidden, input_html: {value: "2"} %>
+      <%= f.input :email, required: true, autofocus: true, label: "E-mail" %>
+      <%= f.input :password, required: true, label: "Senha" %>
+      <%= f.input :password_confirmation, required: true, label: "Confirmar Senha" %>
+      <%= f.input :name_institute, required: true, label: "Nome da Instituição" %>
+      <%= f.input :name_responsible, required: true, label: "Nome do Responsável" %>
+      <%= f.input :phone, required: true, label: "Telefone" %>
+      <%= f.input :role_id, as: :hidden, input_html: {value: "2"} %>
+    <p>
+      Escolaridade: 
+      <%= f.input :elementary_school, label: "1º ao 5º ano" %>
+      <%= f.input :middle_school, label: "6º ao 9º ano" %>
+      <%= f.input :high_school, label: "Ensino Médio" %>
+    </p>
+      <%= f.input :neighborhood, label: "Bairro" %>
+    <p>
+      Religião:<br>
+      <%= f.collection_radio_buttons :religion, [[1, 'Católico'] ,[2, 'Protestantes'],[3, 'Sem Classificação']], :first, :last %>
+    </p>
+    <p>
+      Portadores de Necessidades Especiais: 
+      <%= f.input :physical, label: "Físico" %>
+      <%= f.input :hearing, label: "Auditivo" %>
+      <%= f.input :mental, label: "Mental" %>
+      <%= f.input :view, label: "Visão" %>
+    </p>
 
   </div>
 

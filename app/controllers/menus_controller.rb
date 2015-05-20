@@ -10,18 +10,15 @@ class MenusController < ApplicationController
     else
       @page = @menu.father.page
     end
-    @voted == false
-    if cookies[:VoteInstitute]
-
-      cookies[:VoteInstitute].split("&").each do |vote|
-        if vote == @page.id.to_s
+    @voted = false
+      if cookies[:VoteInstitute]
+        if cookies[:VoteInstitute].split("&").include?(@page.id.to_s)
           @voted = true
         end
       end
 
       @comments = @page.comments
       @comment = Comment.new
-    end
 
   end
 

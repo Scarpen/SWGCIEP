@@ -24,6 +24,18 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :name_responsible
       t.string :avatar
 
+
+
+      t.boolean :elementary_school
+      t.boolean :middle_school
+      t.boolean :high_school
+      t.string :neighborhood
+      t.integer :religion
+      t.boolean :physical
+      t.boolean :hearing
+      t.boolean :mental
+      t.boolean :view
+  
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
