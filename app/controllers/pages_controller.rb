@@ -106,9 +106,7 @@ class PagesController < ApplicationController
     @neighborhoods << "Todos"
     @neighborhoods.reverse!
     @filters = params[:list_institutes]
-    if @filters
-      
-       
+    if @filters 
       @institutes = @institutes.search("neighborhood",
         @filters[:neighborhood]) if @filters[:neighborhood] != "Todos" if @filters[:neighborhood].present? 
       @institutes = @institutes.searchint("elementary_school",
@@ -118,11 +116,16 @@ class PagesController < ApplicationController
       @institutes = @institutes.searchint("high_school",
         @filters[:high_school]) if @filters[:high_school] == "1" if @filters[:high_school].present?
       @institutes = @institutes.search("name_institute", @filters[:search]) if @filters[:search].present?
-      @institutes = @institutes.searchint("religion",@filters[:religion]) if @filters[:religion].present?
-      @institutes = @institutes.search("physical",@filters[:physical]) if @filters[:physical].present?
-      @institutes = @institutes.search("hearing",@filters[:hearing]) if @filters[:hearing].present?
-      @institutes = @institutes.search("mental",@filters[:mental]) if @filters[:mental].present?
-      @institutes = @institutes.search("view",@filters[:view]) if @filters[:view].present?
+      @institutes = @institutes.search("religion",
+        @filters[:religion]) if @filters[:religion] != "0" if @filters[:religion].present?
+      @institutes = @institutes.searchint("physical",
+        @filters[:physical]) if @filters[:physical] == "1" if @filters[:physical].present?
+      @institutes = @institutes.searchint("hearing",
+        @filters[:hearing]) if @filters[:hearing] == "1" if @filters[:hearing].present?
+      @institutes = @institutes.searchint("mental",
+        @filters[:mental]) if @filters[:mental] == "1" if @filters[:mental].present?
+      @institutes = @institutes.searchint("view",
+        @filters[:view]) if @filters[:view] == "1" if @filters[:view].present?
     else
       @filters = Hash.new
       @filters[:neighborhood] = "Todos"
@@ -130,6 +133,11 @@ class PagesController < ApplicationController
       @filters[:elementary_school] = "0"
       @filters[:middle_school] = "0"
       @filters[:high_school] = "0"
+      @filters[:religion] = 0
+      @filters[:physical] = "0"
+      @filters[:hearing] = "0"
+      @filters[:mental] = "0"
+      @filters[:view] = "0"
     end
   end
 

@@ -22,5 +22,6 @@ module SisWGCIEP
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(ckeditor/*)
+    config.assets.precompile += ['bootstrap2.css', 'bootstrap-responsive.css', 'fontello.css', 'style.css', 'bootstrap_panel.css', 'prettyPhoto.css', 'custom.css', 'font-awesome.css']  
   end
 end

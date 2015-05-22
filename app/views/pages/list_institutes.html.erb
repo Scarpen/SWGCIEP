@@ -1,11 +1,14 @@
 <%= simple_form_for :list_institutes do |f|%>
-  <%= %>
   <%= f.input :neighborhood, as: :radio_buttons,label:"Bairro", collection: @neighborhoods, :checked => @filters[:neighborhood] %>
   <%= f.input :search,label:"Nome", input_html: { value: @filters[:search] } %>
   <%= f.input :elementary_school, as: :boolean, label: "1º ao 5º ano", input_html: {checked: verify_value(@filters[:elementary_school])} %>
   <%= f.input :middle_school, as: :boolean, label: "6º ao 9º ano", input_html: {checked: verify_value(@filters[:middle_school])} %>
   <%= f.input :high_school, as: :boolean, label: "Ensino Medio", input_html: {checked: verify_value(@filters[:high_school])} %>
-
+  <%= f.collection_radio_buttons :religion, [[0, 'Todos'],[1, 'Catolico'],[2, 'Protestantes'],[3, 'Sem Classificacao']], :first, :last, :checked => @filters[:religion] %>
+    <%= f.input :physical, as: :boolean, label: "Fisica", input_html: {checked: verify_value(@filters[:physical])} %>
+  <%= f.input :hearing, as: :boolean, label: "Auditivo", input_html: {checked: verify_value(@filters[:hearing])} %>
+  <%= f.input :mental, as: :boolean, label: "Mental", input_html: {checked: verify_value(@filters[:mental])} %>
+  <%= f.input :view, as: :boolean, label: "Visual", input_html: {checked: verify_value(@filters[:view])} %>
   <%= f.submit "Filtrar" %>
 <% end %>
 

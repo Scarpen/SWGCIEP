@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  layout "admin_panel", only: [:menus, :conteudo]
+
 before_action :configure_permitted_parameters, if: :devise_controller?
- # layout :resolve_layout
+  layout :resolve_layout
 
   # ...
 
@@ -25,14 +25,16 @@ protected
 		devise_parameter_sanitizer.for(:sign_up) << :mental
 		devise_parameter_sanitizer.for(:sign_up) << :view
 	end
-	  private
+	private
 
-  # def resolve_layout
-  #   case page
-	 #    when "conteudo", "menus"
-	 #      "admin_panel"
-	 #    else
-	 #      "application"
-	 #    end
-  # end
+  def resolve_layout
+    case action_name
+    when "menus", "conteudo"
+      "admin_panel"
+    when "index"
+      "index_layout"
+    else
+      "application"
+    end
+  end
 end

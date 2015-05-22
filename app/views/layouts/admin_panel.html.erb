@@ -12,7 +12,9 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
     <![endif]-->
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "bootstrap_panel.css" %>
+    <%= stylesheet_link_tag "custom.css" %>
+    <%= stylesheet_link_tag "font-awesome.css" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -46,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SWGCIEP</a> 
+                <a class="navbar-brand" href="index.html">Onde Estudar?</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
@@ -58,27 +60,22 @@ font-size: 16px;"> Último acesso : 15 de Maio de 2015 &nbsp; <a href="login.htm
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
         <li class="text-center">
-                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>
-          </li>
-        
-          
+                    <%= image_tag("find_user.png", :class => "user-image img-responsive") %>
+                    
+          </li>          
                     <li>
-                        <a class="active-menu" style="font-weight:bold; font-size:16px; text-align:center;"></i>ADMINISTRAR PÁGINA</a>
+                        <a class="active-menu" style="font-weight:bold; font-size:16px; text-align:center; color:#FFF">ADMINISTRAR PÁGINA</a>
                     </li>
                      <li>
-                        <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i>Logo</a>
+                        <a  href="ui.html">Logo</a>
                     </li>
                     <li>
-                        <a  href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i>Cabeçalho</a>
+                        <a  href="tab-panel.html">Cabeçalho</a>
                     </li>
-               <li  >
-                        <a   href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i>Menu</a>
-                    </li> 
-                      <li  >
-                        <a  href="table.html"><i class="fa fa-table fa-3x"></i>Conteúdo</a>
-                    </li>
+                        <li> <%= link_to "Menus", menus_pages_path %> </li>
+                        <li> <%= link_to "Conteudo", conteudo_pages_path %> </li>
                     <li  >
-                        <a  href="form.html"><i class="fa fa-edit fa-3x"></i>Layout</a>
+                        <a  href="form.html"></i>Layout</a>
                     </li>       
             
                 </ul>
