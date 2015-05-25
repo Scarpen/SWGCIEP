@@ -16,6 +16,7 @@
 //= require ckeditor/init
 //= require ckeditor/config
 //= require_tree .
+//= require prettyphoto-rails
 
 function remove_fields(link) {
   $(link).previous("input[type=hidden]").value = "1";

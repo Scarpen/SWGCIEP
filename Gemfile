@@ -6,6 +6,7 @@ gem 'therubyracer'
 gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'prettyphoto-rails'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

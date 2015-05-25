@@ -33,8 +33,10 @@ protected
       "admin_panel"
     when "index"
       "index_layout"
+    when "show"
+    	"vintage2"
     else
-      "application"
+      "vintage"
     end
   end
 end

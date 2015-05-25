@@ -10,7 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require animate
+ *= require bootstrap3
+ *= require nav
+ *= require jquery-ui
+ *= require style3
  *= require_self
- *= require prettyphoto-rails
  */

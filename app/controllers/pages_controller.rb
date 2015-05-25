@@ -109,22 +109,22 @@ class PagesController < ApplicationController
     if @filters 
       @institutes = @institutes.search("neighborhood",
         @filters[:neighborhood]) if @filters[:neighborhood] != "Todos" if @filters[:neighborhood].present? 
-      @institutes = @institutes.searchint("elementary_school",
+      @institutes = @institutes.search("elementary_school",
         @filters[:elementary_school]) if @filters[:elementary_school] == "1" if @filters[:elementary_school].present?
-      @institutes = @institutes.searchint("middle_school",
+      @institutes = @institutes.search("middle_school",
         @filters[:middle_school]) if @filters[:middle_school] == "1" if @filters[:middle_school].present?
-      @institutes = @institutes.searchint("high_school",
+      @institutes = @institutes.search("high_school",
         @filters[:high_school]) if @filters[:high_school] == "1" if @filters[:high_school].present?
       @institutes = @institutes.search("name_institute", @filters[:search]) if @filters[:search].present?
       @institutes = @institutes.search("religion",
         @filters[:religion]) if @filters[:religion] != "0" if @filters[:religion].present?
-      @institutes = @institutes.searchint("physical",
+      @institutes = @institutes.search("physical",
         @filters[:physical]) if @filters[:physical] == "1" if @filters[:physical].present?
-      @institutes = @institutes.searchint("hearing",
+      @institutes = @institutes.search("hearing",
         @filters[:hearing]) if @filters[:hearing] == "1" if @filters[:hearing].present?
-      @institutes = @institutes.searchint("mental",
+      @institutes = @institutes.search("mental",
         @filters[:mental]) if @filters[:mental] == "1" if @filters[:mental].present?
-      @institutes = @institutes.searchint("view",
+      @institutes = @institutes.search("view",
         @filters[:view]) if @filters[:view] == "1" if @filters[:view].present?
     else
       @filters = Hash.new
