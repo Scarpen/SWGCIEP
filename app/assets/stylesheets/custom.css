@@ -204,7 +204,7 @@ border-radius: 10px;
 max-height:170px;
 max-width:170px;
 }
-
+/*
 .navbar-cls-top .navbar-brand {
 	color: #fff;
 
@@ -215,6 +215,8 @@ height: 60px;
 font-size: 30px;
 font-weight: 700;
 }
+
+*/
 .active-menu {
     background-color:#0B333F!important;
 }
@@ -305,6 +307,10 @@ font-weight: 700;
 	background-color: #FFFFFF;
 	
 }
+
+
+
+/*
 .navbar-cls-top {
 	background:#0B333F;
 	border-bottom:none;
@@ -336,7 +342,80 @@ background-color: #FFF;
 }
 .nav > li > a > i {
     margin-right:10px;
+}*/
+
+/*MENUUUUU*/
+.container1 {
+ padding-right: 5px;
+ padding-left: 5px;
 }
+
+.navbar-fixed-top1 {
+/* Uncomment to make nav expand full width */
+ width: auto;
+ position:fixed;
+}
+
+ .navbar1 .container1 {
+ width: 100%;
+}
+
+.navbar1 .brand1 {
+    margin-left:0;
+    padding: 0;
+    margin-top: 1.05em;
+}
+.navbar1 .brand1 a {
+    padding: 0;
+    color: #fff;
+    font-size: 1.75em;
+    margin-left: 0;
+    font-weight: normal;
+    font-family: 'Patua One', cursive;
+}
+.navbar1 .brand1 a:hover {
+    text-decoration: none;
+    color:#C7C7C7;
+ transition: color .15s linear;
+ -webkit-transition: color .15s linear;
+ -moz-transition: color .15s linear;
+}
+.navbar1 .brand1 a:focus {
+    outline: none;
+}
+.navbar-inner1 {
+    min-height: 4.75em;
+}
+.navbar-inverse1 .navbar-inner1 {
+    background-repeat: repeat;
+    background-color: #0b333f;
+    border-color: #C7C7C7;
+}
+.navbar-wrapper1 {
+    overflow:hidden;/* No fixed height, will break collapsible nav */
+}
+
+#menu-main {
+    margin-top: 1.125em;
+}
+ul#menu-main > li > a {
+    font-family: 'Patua One', cursive;
+    font-weight: normal;
+    font-size: 1em;
+    color: #fff;
+}
+ul#menu-main > li > a:hover {
+    background: #C7C7C7;
+    padding: 9px 15px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+.navbar-inverse1 .brand1, .navbar-inverse1 .nav > li > a {
+    text-shadow: none;
+}
+
+
 /*==============================================
     UI ELEMENTS STYLES     
     =============================================*/

@@ -36,7 +36,7 @@ protected
     when "show"
     	"vintage2"
     else
-      "vintage"
+      "application"
     end
   end
 end
