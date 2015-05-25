@@ -46,7 +46,7 @@ class MenusController < ApplicationController
 
   def edit
     @menu = Menu.find(params[:id])
-
+    @page = current_user.page
     if @menu.text == nil
       @menu.build_text
     end

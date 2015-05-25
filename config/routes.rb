@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       post 'new_user'
       post 'update_user'
       get 'edit_user'
+      get 'logo'
+      get 'header'
+      get 'index_admin'
     end
   end
 

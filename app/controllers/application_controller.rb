@@ -29,14 +29,14 @@ protected
 
   def resolve_layout
     case action_name
-    when "menus", "conteudo"
+    when "menus", "conteudo", "edit", "logo", "header", "index_admin"
       "admin_panel"
     when "index"
       "index_layout"
     when "show"
     	"vintage2"
     else
-      "vintage"
+      "application"
     end
   end
 end

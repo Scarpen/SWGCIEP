@@ -60,18 +60,15 @@ font-size: 16px;"> Último acesso : 15 de Maio de 2015 &nbsp; <a href="login.htm
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
         <li class="text-center">
-                    <%= image_tag("find_user.png", :class => "user-image img-responsive") %>
+                    <%= image_tag(@page.logo, :class => "user-image img-responsive") %>
                     
           </li>          
                     <li>
                         <a class="active-menu" style="font-weight:bold; font-size:16px; text-align:center; color:#FFF">ADMINISTRAR PÁGINA</a>
                     </li>
-                     <li>
-                        <a  href="ui.html">Logo</a>
-                    </li>
-                    <li>
-                        <a  href="tab-panel.html">Cabeçalho</a>
-                    </li>
+                    <li> <%= link_to "Inicio", index_admin_pages_path %> </li>
+                     <li> <%= link_to "Logo", logo_pages_path %> </li>
+                      <li> <%= link_to "Cabeçalho", header_pages_path %> </li>
                         <li> <%= link_to "Menus", menus_pages_path %> </li>
                         <li> <%= link_to "Conteudo", conteudo_pages_path %> </li>
                     <li  >
@@ -93,56 +90,7 @@ font-size: 16px;"> Último acesso : 15 de Maio de 2015 &nbsp; <a href="login.htm
                 </div>              
                  <!-- /. ROW  -->
                   <hr />
-                <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-6 ">           
-      <div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-red set-icon">
-                    <i class="fa fa-envelope-o"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">4 Novos</p>
-                    <p class="text-muted">Comentários</p>
-                </div>
-             </div>
-         </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-      <div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-green set-icon">
-                    <i class="fa fa-bars"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">3 Novas</p>
-                    <p class="text-muted">Recomendações</p>
-                </div>
-             </div>
-         </div>
-            <!--<div class="col-md-3 col-sm-6 col-xs-6">           
-      <div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-blue set-icon">
-                    <i class="fa fa-bell-o"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">240 New</p>
-                    <p class="text-muted">Notifications</p>
-                </div>
-             </div>
-         </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">           
-      <div class="panel panel-back noti-box">
-                <span class="icon-box bg-color-brown set-icon">
-                    <i class="fa fa-rocket"></i>
-                </span>
-                <div class="text-box" >
-                    <p class="main-text">3 Orders</p>
-                    <p class="text-muted">Pending</p>
-                </div>
-             </div>
-         </div>
-      </div>
-               -->  
-                    
-                 <!-- /. ROW  -->           
-    </div>
+                
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

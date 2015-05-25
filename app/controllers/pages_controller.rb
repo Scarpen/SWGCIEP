@@ -72,12 +72,31 @@ class PagesController < ApplicationController
   end
 
   def conteudo
-    @menus = current_user.page.menus
+    @page = current_user.page
+    @menus = @page.menus
   end
 
   def menus
     @page = current_user.page
 
+  end
+
+  def logo
+    @page = current_user.page
+  end
+
+  def header
+    @page = current_user.page
+  end
+
+  def index_admin
+    @page = current_user.page
+    @count = 0
+    @page.comments.each do |comment|
+      if comment.father_id == nil
+        @count += 1
+      end
+    end
   end
 
   def create
@@ -150,10 +169,10 @@ class PagesController < ApplicationController
         end
       end
       if @page.save
-        redirect_to menus_pages_path, notice: "O menu foi atualizado com sucesso"
+        redirect_to index_admin_pages_path, notice: "As informacoes foram atualizadas com sucesso"
       end
     else
-      render action: "edit"
+      redirect_to index_admin_pages_path, notice: "Nao foi possivel atualizar as informacoes "
     end
     
   end

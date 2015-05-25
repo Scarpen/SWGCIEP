@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
-
+	mount_uploader :logo, LogoUploader
+	mount_uploader :header, HeaderUploader
 	has_many :menus, :dependent => :destroy
 	belongs_to :user
 	has_many :comments, :dependent => :destroy
