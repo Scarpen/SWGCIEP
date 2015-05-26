@@ -77,11 +77,26 @@ font-size: 16px;"> Último acesso : 15 de Maio de 2015 &nbsp; <a href="login.htm
                     <li>
                         <a class="active-menu" style="font-weight:bold; font-size:16px; text-align:center; color:#FFF">ADMINISTRAR PÁGINA</a>
                     </li>
-                    <li> <%= link_to "Inicio", index_admin_pages_path %> </li>
-                     <li> <%= link_to "Logo", logo_pages_path %> </li>
-                      <li> <%= link_to "Cabeçalho", header_pages_path %> </li>
-                        <li> <%= link_to "Menus", menus_pages_path %> </li>
-                        <li> <%= link_to "Conteudo", conteudo_pages_path %> </li>
+                    <li> <%= link_to index_admin_pages_path do%>
+                      <%=image_tag("1.png")%> Inicio
+                        <% end %>
+                    </li>
+                     <li> <%= link_to logo_pages_path do %> 
+                      <%=image_tag("1.png")%> Logo
+                      <% end %>
+                     </li>
+                      <li> <%= link_to header_pages_path do %> 
+                      <%=image_tag("1.png")%> Cabeçalho
+                      <% end %>
+                      </li>
+                        <li> <%= link_to menus_pages_path do %> 
+                      <%=image_tag("1.png")%> Menu
+                      <% end %>
+                        </li>
+                        <li> <%= link_to conteudo_pages_path do %> 
+                      <%=image_tag("1.png")%> Conteúdo
+                      <% end %>
+                        </li> 
                     <li  >
                         <a  href="form.html"></i>Layout</a>
                     </li>       

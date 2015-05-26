@@ -790,7 +790,7 @@ legend small {
 	color: #999999;
 }
 label, input, button, select, textarea {
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: normal;
 	line-height: 20px;
 }

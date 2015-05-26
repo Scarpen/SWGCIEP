@@ -256,6 +256,8 @@ font-weight: 700;
 	color:#000;
 	background:#c7c7c7;
 	text-shadow:none;
+    font-weight:bold;
+    font-size:16px;
 	
 }
 .sidebar-collapse > .nav > li > a {
