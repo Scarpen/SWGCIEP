@@ -352,7 +352,7 @@ background-color: #FFF;
 
 .navbar-fixed-top1 {
 /* Uncomment to make nav expand full width */
- width: auto;
+ width: 100%;
  position:fixed;
 }
 
@@ -384,7 +384,9 @@ background-color: #FFF;
     outline: none;
 }
 .navbar-inner1 {
+    margin-top: -38px;
     min-height: 4.75em;
+
 }
 .navbar-inverse1 .navbar-inner1 {
     background-repeat: repeat;
