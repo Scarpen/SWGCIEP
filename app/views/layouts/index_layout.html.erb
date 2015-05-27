@@ -75,8 +75,17 @@
           <h2>Pesquise a escola para o seu filho!</h2>
           <%= f.input :search, label: false ,placeholder:"Nome da instituição", input_html: {class: "cform-text", size: "40"}, required: false %>
           <br>
+           <label class="checkbox-inline">
+  <input type="checkbox" id="inlineCheckbox1" value="option1"  style="width: 20px;  height: 20px; margin-right:10px;">1º ano a 5º ano
+  <input type="checkbox" id="inlineCheckbox2" value="option2"  style="width: 20px;  height: 20px; margin-right:10px; margin-left:20px;">6º a 9º ano
+  <input type="checkbox" id="inlineCheckbox3" value="option3"  style="width: 20px;  height: 20px; margin-right:10px; margin-left:20px;">Ensino médio
+          <br>
+          <br>
           <%= f.submit "Pesquisar", class: "cform-submit" %>
         </div>
+       
+</label>
+
       </div>
     </div>
     <% end %>
