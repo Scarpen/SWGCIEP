@@ -50,7 +50,12 @@
         <h1 class="brand"><a href="#top">Onde Estudar?</a></h1>
         <nav class="pull-right nav-collapse collapse">
           <ul id="menu-main" class="nav">
-            <li><a title="contact" href="#contact">Login</a></li>
+            <% if current_user %>
+            <li><%= current_user.email %> </li>
+            <li><%= link_to "Logout", destroy_user_session_path %></li>
+            <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
           </ul>
         </nav>
       </div>
@@ -75,10 +80,17 @@
           <h2>Pesquise a escola para o seu filho!</h2>
           <%= f.input :search, label: false ,placeholder:"Nome da instituição", input_html: {class: "cform-text", size: "40"}, required: false %>
           <br>
-           <label class="checkbox-inline">
-  <input type="checkbox" id="inlineCheckbox1" value="option1"  style="width: 20px;  height: 20px; margin-right:10px;">1º ano a 5º ano
-  <input type="checkbox" id="inlineCheckbox2" value="option2"  style="width: 20px;  height: 20px; margin-right:10px; margin-left:20px;">6º a 9º ano
-  <input type="checkbox" id="inlineCheckbox3" value="option3"  style="width: 20px;  height: 20px; margin-right:10px; margin-left:20px;">Ensino médio
+          <div class="span3"></div>
+          <div class="span2"> 
+            <%= f.input :elementary_school, as: :boolean,  inline_label: true,label: "1º ao 5º ano", input_html: {class: "inlineCheckbox1", style: "width: 20px;  height: 20px;"}, label_html: {:style => "padding-top: 3px; padding-right:40px"} %>
+          </div>
+          <div class="span2"> 
+            <%= f.input :middle_school, as: :boolean,  inline_label: true,label: "6º ao 9º ano", input_html: {class: "inlineCheckbox2" , style: "width: 20px;  height: 20px;"}, label_html: {:style => "padding-top: 3px; padding-right:40px"} %>
+          </div>
+          <div class="span2"> 
+            <%= f.input :high_school, as: :boolean,  inline_label: true,label: "Ensino Medio", input_html: {class: "inlineCheckbox3", style: "width: 20px;  height: 20px;"}, label_html: {:style => "padding-top: 3px; padding-right:40px"} %>
+          </div>
+          <div class="span3"></div>
           <br>
           <br>
           <%= f.submit "Pesquisar", class: "cform-submit" %>
@@ -144,10 +156,10 @@
         <div class="mask2"> <a href="<%= image_path('portfolio-02.jpg')%>" rel="prettyPhoto"><img src="<%= image_path('portfolio-02.jpg')%>" alt=""></a></div>
         <div class="inside">
           <hgroup>
-            <h2><b>Instituição A</b></h2>
+            <h2><b><%= @pages[0].user.name_institute %></b></h2>
           </hgroup>
           <div class="entry-content">
-            <p>X pessoas recomendaram</p>
+            <p><%= @pages[0].recommends %> pessoas recomendaram</p>
             </div>
         </div>
       </div>
@@ -155,10 +167,10 @@
         <div class="mask2"> <a href="<%= image_path('portfolio-02.jpg')%>" rel="prettyPhoto"><img src="<%= image_path('portfolio-02.jpg')%>" alt=""></a></div>
         <div class="inside">
           <hgroup>
-            <h2><b>Instituição B</b></h2>
+            <h2><b><%= @pages[1].user.name_institute %></b></h2>
           </hgroup>
           <div class="entry-content">
-           <p>X pessoas recomendaram</p>
+           <p><%= @pages[1].recommends %> pessoas recomendaram</p>
             </div>
         </div>
       </div>
@@ -166,10 +178,10 @@
         <div class="mask2"> <a href="<%= image_path('portfolio-02.jpg')%>" rel="prettyPhoto"><img src="<%= image_path('portfolio-02.jpg')%>" alt=""></a></div>
         <div class="inside">
           <hgroup>
-            <h2><b>Instituição C</b></h2>
+            <h2><b><%= @pages[2].user.name_institute %></b></h2>
           </hgroup>
           <div class="entry-content">
-            <p>X pessoas recomendaram</p>
+            <p><%= @pages[2].recommends %> pessoas recomendaram</p>
             </div>
         </div>
       </div>

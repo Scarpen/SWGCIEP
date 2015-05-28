@@ -122,8 +122,6 @@ class PagesController < ApplicationController
   def list_institutes
     @institutes = User.where("role_id = 2")
     @neighborhoods = User.pluck("DISTINCT neighborhood")
-    @neighborhoods << "Todos"
-    @neighborhoods.reverse!
     @filters = params[:list_institutes]
     if @filters 
       @institutes = @institutes.search("neighborhood",

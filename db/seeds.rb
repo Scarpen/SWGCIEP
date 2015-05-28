@@ -19,5 +19,6 @@ user.email = "admin@admin.com"
 user.phone = "99999999"
 user.role_id = 1
 user.name_responsible = "Admin"
+user.neighborhood = "Todos"
 user.password = "12345678"
 user.save
