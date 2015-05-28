@@ -52,7 +52,7 @@
           <ul id="menu-main" class="nav">
             <% if current_user %>
             <li><%= current_user.email %> </li>
-            <li><%= link_to "Logout", destroy_user_session_path %></li>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
             <% else %>
             <li><%= link_to "Login", new_user_session_path %></li>
             <% end %>
