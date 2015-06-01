@@ -94,6 +94,8 @@
           <div class="span3"></div>
           <br>
           <br>
+          <br>
+          <br>
           <%= f.submit "Pesquisar", class: "cform-submit" %>
         </div>
        
@@ -153,6 +155,7 @@
     <div class="align"><i class="icon-desktop-circled"></i></div>
     <h1 id="folio-headline">Instituições Recomendadas</h1>
     <div class="row">
+      <% if @pages[0].present?%>
       <div class="span4">
         <div class="mask2"> <a href="<%= image_path('portfolio-02.jpg')%>" rel="prettyPhoto"><img src="<%= image_path('portfolio-02.jpg')%>" alt=""></a></div>
         <div class="inside">
@@ -164,6 +167,8 @@
             </div>
         </div>
       </div>
+      <% end %>
+      <% if @pages[1].present? %>
       <div class="span4">
         <div class="mask2"> <a href="<%= image_path('portfolio-02.jpg')%>" rel="prettyPhoto"><img src="<%= image_path('portfolio-02.jpg')%>" alt=""></a></div>
         <div class="inside">
@@ -175,6 +180,8 @@
             </div>
         </div>
       </div>
+      <% end %>
+      <% if @pages[2].present? %>
       <div class="span4">
         <div class="mask2"> <a href="<%= image_path('portfolio-02.jpg')%>" rel="prettyPhoto"><img src="<%= image_path('portfolio-02.jpg')%>" alt=""></a></div>
         <div class="inside">
@@ -186,6 +193,7 @@
             </div>
         </div>
       </div>
+      <% end %>
     </div>
     
   </div>
