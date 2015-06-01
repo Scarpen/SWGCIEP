@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'logo'
       get 'header'
       get 'index_admin'
+      get 'login'
     end
   end
 

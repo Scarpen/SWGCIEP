@@ -90,13 +90,18 @@ class PagesController < ApplicationController
   end
 
   def index_admin
-    @page = current_user.page
-    @count = 0
-    @page.comments.each do |comment|
-      if comment.father_id == nil
-        @count += 1
+    if current_user
+      @page = current_user.page
+      @count = 0
+      @page.comments.each do |comment|
+        if comment.father_id == nil
+          @count += 1
+        end
       end
+    else
+      redirect_to login_pages_path
     end
+
   end
 
   def create

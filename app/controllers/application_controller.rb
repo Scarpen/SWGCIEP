@@ -35,6 +35,10 @@ protected
       "index_layout"
     when "show"
     	"vintage2"
+    when "login"
+      "login_layout"
+    when "list_institutes"
+      "list_layout"
     else
       "application"
     end

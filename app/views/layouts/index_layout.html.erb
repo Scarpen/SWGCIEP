@@ -54,7 +54,7 @@
             <li><%= current_user.email %> </li>
             <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
             <% else %>
-            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= button_to "Login", index_admin_pages_path, method: :get, class: "btn btn-default"%></li>
             <% end %>
           </ul>
         </nav>
@@ -71,6 +71,7 @@
     <br>
     <br>
     <br>
+
     <br>
     <h1><b><span> </span></b></h1>
     <%= simple_form_for :list_institutes, :url => list_institutes_pages_path do |f|%>
