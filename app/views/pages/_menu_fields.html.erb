@@ -1,12 +1,31 @@
-<p class="fields">
-  <%= f.input :name, label: "Menu", input_html: {style: "width: 30%"} %><br />
-  <%= f.hidden_field :_destroy %>
-  <%= link_to_remove_fields "Remover", f %>
-
-</p>
-
-<%= f.fields_for :submenus do |builder| %>
-  <%= render 'submenu_fields', :f => builder %>
-<% end %>
-
-<p><%= link_to_add_fields "Add Submenu", f, :submenus %></p>
+<div class="nested-fields">
+	<div class="col-md-12">
+	  <div class="panel panel-primary">
+	    
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Menu
+		    <%= link_to_remove_association "X", f, class: "btn btn-danger btn-xs", style: "float:right" %></h3>
+	    </div>
+	    
+	    <div class="panel-body">
+	      <div class="form-inputs">
+	        <div class="form-group">
+	          <div class="col-md-12">
+	          	<p class="fields">
+				  <%= f.input :name, label: "Nome", input_html: {style: "width: 60%"} %><br />
+				  <%= f.hidden_field :_destroy %>
+				</p>
+	          </div>
+	        </div>
+      		<%= f.fields_for :submenus do |submenu| %>
+		  		<%= render 'submenu_fields', :f => submenu %>
+			<% end %>
+	        <div class="col-md-4">
+	        	<%= link_to_add_association " ", f, :submenus, class: "btn btn-primary btn-block glyphicon glyphicon-plus" %>
+	        </div>
+	        <end%>
+	      </div>
+	    </div> <!-- close panel body -->
+	  </div> <!-- panel primary -->
+	</div>
+</div> <!-- nested fields -->

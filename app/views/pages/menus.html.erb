@@ -1,34 +1,19 @@
-
-<div class="container-fluid">
-  <div class="row row-offcanvas row-offcanvas-left">
-    <div class="col-md-12">
-      <h2 style="text-align: center;"> Gerenciar Menu </h2>
+<div class="panel panel-primary">
+  <h2 style="text-align: center;"> Gerenciar Menus </h2>
         <%= simple_form_for @page do |f| %>  
-          <%= f.fields_for :menus do |builder| %>
-            <%= render "menu_fields", :f => builder %>
-          <% end %>
-          <p><%= link_to_add_fields "Adicionar Menu", f, :menus %></p>
-          <p><%= f.submit "Submit" %></p>
-        <% end %>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-<script>
-function remove_fields(link) {
-  $(link).prev("input[type=hidden]").val("1");
-  $(link).closest(".fields").hide();
-}
-</script>
-
-<script>
-function add_fields(link, association, content) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
-  $(link).parent().before(content.replace(regexp, new_id));
-}
-</script>
+          <div class="panel-body">
+            <div id="events">
+              <%= f.fields_for :menus do |menu| %>
+                <%= render "menu_fields", :f => menu %>
+              <% end %>
+              <div class="col-md-12">
+                <%= link_to_add_association " ", f, :menus, class: "btn btn-primary btn-block glyphicon glyphicon-plus" %>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <p><%= f.submit "Submit", class: "btn btn-primary" %></p>
+        </div>
+        
+<% end %>

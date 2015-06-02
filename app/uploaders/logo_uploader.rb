@@ -42,6 +42,12 @@ class LogoUploader < CarrierWave::Uploader::Base
   #   %w(jpg jpeg gif png)
   # end
   process :resize_to_fit => [260, 100]
+  version :logo do
+    process :resize_to_fit => [160, 100]
+  end
+  version :logo_full do
+    process :resize_to_fit => [240, 180]
+  end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
