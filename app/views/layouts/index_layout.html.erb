@@ -95,6 +95,8 @@
           <div class="span3"></div>
           <br>
           <br>
+          <br>
+          <br>
           <%= f.submit "Pesquisar", class: "cform-submit" %>
         </div>
        
@@ -154,6 +156,7 @@
     <div class="align"><%= image_tag("like.png")%></div>
     <h1 id="folio-headline">Instituições Recomendadas</h1>
     <div class="row">
+      <% if @pages[0].present?%>
       <div class="span4">
         <div class="mask2" style="height:224px; width:377px; transform: translateY( 25% );"> <a href="<%= @pages[0].logo_url%>" rel="prettyPhoto"><img src="<%= @pages[0].logo.logo_full.url%>" alt=""></a></div>
         <div class="inside">
@@ -165,6 +168,8 @@
             </div>
         </div>
       </div>
+      <% end %>
+      <% if @pages[1].present? %>
       <div class="span4">
         <div class="mask2" style="height:224px; width:377px; transform: translateY( 25% );"> <a href="<%= @pages[1].logo_url%>" rel="prettyPhoto"><img src="<%= @pages[1].logo_url%>" alt=""></a></div>
         <div class="inside">
@@ -176,6 +181,8 @@
             </div>
         </div>
       </div>
+      <% end %>
+      <% if @pages[2].present? %>
       <div class="span4">
         <div class="mask2" style="height:224px; width:377px; transform: translateY( 25% );"> <a href="<%= @pages[2].logo_url%>" rel="prettyPhoto"><img src="<%= @pages[2].logo_url%>" alt=""></a></div>
         <div class="inside">
@@ -187,6 +194,7 @@
             </div>
         </div>
       </div>
+      <% end %>
     </div>
     
   </div>
