@@ -5,12 +5,12 @@
 				<div style="margin-left: 20px">
 					<% menu.submenus.each do |submenu| %>
 						<%=	submenu.name%>
-						<%= link_to "Editar Conteudo", edit_menu_path(submenu) %><br>
+						<%= link_to "Editar Conteúdo", edit_menu_path(submenu) %><br>
 					<% end %>
 				</div>
 			<% else %>
 				<%= menu.name %>
-				<%= link_to "Editar Conteudo", edit_menu_path(menu) %><br>
+				<%= link_to "Editar Conteúdo", edit_menu_path(menu) %><br>
 			<% end %>
 			<hr />
 		<% end %>
