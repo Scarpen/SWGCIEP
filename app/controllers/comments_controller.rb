@@ -33,8 +33,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    if @comment.page.menus.first.submenus.first == nil
+     page = @comment.page.menus.first
+    else
+     page = @comment.page.menus.first.submenus.first
+    end
     @comment.destroy
-    respond_with(@comment)
+    redirect_to page
   end
 
   private
