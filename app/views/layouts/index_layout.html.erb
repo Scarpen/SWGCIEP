@@ -54,7 +54,7 @@
             <li><%= current_user.email %> </li>
             <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
             <% else %>
-            <li><%= button_to "Login", index_admin_pages_path, method: :get, class: "btn btn-default", style:"height: 38px;
+            <li><%= button_to "Login", login_pages_path, method: :get, class: "btn btn-default", style:"height: 38px;
     padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
             <% end %>
           </ul>
@@ -111,13 +111,38 @@
   <section id="feature">
     <div class="container">
       <div class="row">
-        <div class="span12">
-            <article>
-            <p>Quer procurar a escola perfeita para seus filhos?</p>
-            <p><b style="color: #000">Onde Estudar </b> pode te ajudar com isso!</p>
-            <p>Faça agora mesmo sua pesquisa!</p>
-          </article>
-        </div>
+          <div id="carousel-example-generic" class="carousel slide container-fluid" data-ride="carousel">    
+                <ol class="carousel-indicators" style="margin-left: -20px">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+              <div class="carousel-inner">
+                <div class="item active">
+                    <article>
+                      <p>Quer procurar a escola perfeita para seus filhos?</p>
+                      <p><b style="color: #000">Onde Estudar </b> pode te ajudar com isso!</p>
+                      <p>Faça agora mesmo sua pesquisa!</p>
+                    </article>
+                </div>
+
+                <div class="item">
+                    <article>
+                      <p>Quer procurar a escola perfeita para seus filhos?</p>
+                      <p><b style="color: #000">Onde Estudar </b> pode te ajudar com isso!</p>
+                      <p>Faça agora mesmo sua pesquisa!</p>
+                    </article>
+                </div>
+
+                <div class="item">
+                    <article>
+                      <p>Quer procurar a escola perfeita para seus filhos?</p>
+                      <p><b style="color: #000">Onde Estudar </b> pode te ajudar com isso!</p>
+                      <p>Faça agora mesmo sua pesquisa!</p>
+                    </article>
+                </div>
+              </div>
       </div>
     </div>
   </section>

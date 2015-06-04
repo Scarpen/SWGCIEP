@@ -28,19 +28,25 @@ protected
 	private
 
   def resolve_layout
-    case action_name
-    when "menus", "conteudo", "edit", "logo", "header", "index_admin", "conlayout"
-      "admin_panel"
-    when "index"
-      "index_layout"
-    when "show"
-    	"vintage2"
-    when "login"
-      "login_layout"
-    when "list_institutes"
-      "list_layout"
+    if controller_name == "sessions"
+      if action_name == "new"
+        "login_layout"
+      end
     else
-      "application"
+      case action_name
+        when "menus", "conteudo", "edit", "logo", "header", "index_admin", "conlayout"
+          "admin_panel"
+        when "index"
+          "index_layout"
+        when "show"
+        	"vintage2"
+        when "login"
+          "login_layout"
+        when "list_institutes"
+          "list_layout"
+        else
+          "list_layout"
+        end
     end
   end
 end
