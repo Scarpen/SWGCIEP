@@ -43,11 +43,9 @@
     <div class="navbar-inner1">
       <div class="container1">
         <h1 class="brand1"><a href="#top">Onde Estudar?</a></h1>
-        <nav class="pull-right nav-collapse collapse">
-          <ul id="menu-main" class="nav">
+          <ul>
             <li><a title="contact" href="#contact">Login</a></li>
           </ul>
-        </nav>
       </div>
     </div>
    <!-- <div style="color: white;
@@ -98,9 +96,10 @@ font-size: 16px;"> Último acesso : 15 de Maio de 2015 &nbsp; <a href="login.htm
                       <%=image_tag("content.png")%>
                       <% end %>
                         </li> 
-                    <li  >
-                        <a  href="form.html"><%=image_tag("layoutpic.png")%></a>
-                    </li>       
+                       <li> <%= link_to conlayout_pages_path do %> 
+                      <%=image_tag("layoutpic.png")%>
+                      <% end %>
+                        </li>     
             
                 </ul>
                

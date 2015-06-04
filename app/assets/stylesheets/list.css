@@ -14,3 +14,7 @@
  *= require bootstrap3
  *= require_self
  */
+
+ ul {
+	list-style-type: none;
+ }

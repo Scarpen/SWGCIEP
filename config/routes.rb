@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'header'
       get 'index_admin'
       get 'login'
+      get 'conlayout'
     end
   end
 

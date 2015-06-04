@@ -16,53 +16,41 @@
         <div class="col-md-10 col-sm-10">
           <div class="panel panel-default arrow left">
             <div class="panel-body">
-              <header class="text-left">
-                <div class="comment-user"><i class="fa fa-user"></i> <strong>Commenter:</strong><%= comment.author %></div>
-              </header>
               <div class="comment-post">
                 <p>
-                  <strong>Coment:</strong> <%= comment.comment %>
+                  <%= comment.comment %>
                 </p>
               </div>
               <p class="text-left"><%= link_to 'Responder', comments_respond_menus_path(:father_id => comment.id, :menu_id => @menu.id), class: "btn btn-default btn-sm"  %></p>
-              <p class="text-left"><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-default btn-sm" %></p>
+              <p class="text-left"><%= link_to 'Apagar', comment, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-default btn-sm" %></p>
             </div> 
+          </div>
+        </div>
             <br>
             <!-- Responder-->          
-                <div class="col-md-10 col-sm-10" style="margin-top:10px">
-                  <div class="panel panel-default arrow left">
-                  <div class="panel-body">
-                  <header class="text-left">
             <% comment.responds.each do |respond| %>
-                  <div style="margin-left: 20px">
-                  <div class="comment-user"><i class="fa fa-user"></i> <strong>Commenter:</strong>
-                    <%= respond.author %>
-                  </div>
-              </header>
-                  <div class="comment-post">
-                  <p>
-                  <strong>Comment:</strong>
-                    <%= respond.comment %>
-                  </p>
-                  </div>
-                  <p>
-                    <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Você tem certeza?' } %>
-                  </p>
-                </div>
+                  <div class="row">
+                    <div class="col-md-2 col-sm-2 hidden-xs">
+                      <figure class="thumbnail">
+                        <img class="img-responsive" src="<%= @page.logo.logo.url %>" />
+                      </figure>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                      <div class="panel panel-default arrow left">
+                        <div class="panel-body">
+                          <div class="comment-post">
+                            <p>
+                              <%= respond.comment %>
+                            </p>
+                          </div>
+                          <p class="text-left"><%= link_to 'Apagar', respond, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-default btn-sm" %></p>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>      
         <% end %>
       </div>
-<br>
-
     <% end %>
-<br>
-         
-      </div>
-</div>
-
-    </div>
-<br>
- </div>
-<br>
 <%= simple_form_for(@comment, :url => comments_path(@comment, :menu_id => @menu.id))  do |f| %>
   <%= f.error_notification %>
 
@@ -80,3 +68,6 @@
 
   </div>
 <% end %>
+</div>
+</div>
+</div>

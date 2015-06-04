@@ -29,7 +29,7 @@ protected
 
   def resolve_layout
     case action_name
-    when "menus", "conteudo", "edit", "logo", "header", "index_admin"
+    when "menus", "conteudo", "edit", "logo", "header", "index_admin", "conlayout"
       "admin_panel"
     when "index"
       "index_layout"

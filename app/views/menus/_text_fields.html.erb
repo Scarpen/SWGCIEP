@@ -1,8 +1,10 @@
+<div class="container">
 <p class="fields">
  <div>
     <%= f.label :description %>
   </div>
-  <div>
-    <%= f.cktext_area :description, rows: 10 %>
+  <div class="col-md-12">
+    <%= f.cktext_area :description, rows: 10, :ckeditor => {class: "col-md-5"} %>
   </div>
 </p>
+</div>

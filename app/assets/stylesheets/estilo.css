@@ -657,7 +657,7 @@ select option {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   -moz-opacity: 0;
   -khtml-opacity: 0;
-  opacity: 0; }
+   }
 
 /* radio */
 .radio label, .radio.label {
@@ -670,7 +670,7 @@ select option {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   -moz-opacity: 0;
   -khtml-opacity: 0;
-  opacity: 0; }
+   }
 .radio:before {
   background: #fff;
   -webkit-border-radius: 50% 50% 50% 50%;

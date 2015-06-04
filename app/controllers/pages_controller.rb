@@ -71,6 +71,17 @@ class PagesController < ApplicationController
     redirect_to @menu
   end
 
+  def conlayout
+    @page = current_user.page
+    if @page.header_config == nil
+      @page.header_config = 1
+    end
+    if @page.menu_config == nil
+      @page.menu_config = 1
+    end
+
+  end
+
   def conteudo
     @page = current_user.page
     @menus = @page.menus
@@ -183,7 +194,7 @@ class PagesController < ApplicationController
 private
 
   def page_params
-    params.require(:page).permit(:id, :layout_id, :user_id, :header, :logo, :recommends, 
+    params.require(:page).permit(:id, :layout_id, :user_id, :header,:header_config, :menu_config, :logo_config, :logo, :recommends, 
       menus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy, 
         submenus_attributes: [:id, :name, :father_id, :tipo, :page_id, :_destroy]])
   end

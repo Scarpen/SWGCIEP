@@ -16,5 +16,6 @@
 //= require ckeditor/init
 //= require ckeditor/config
 //= require_tree .
-//= require prettyphoto-rails
 //= require cocoon
+//= require prettyphoto-rails
+//= require prettyphoto-rails-dev
