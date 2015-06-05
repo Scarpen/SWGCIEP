@@ -52,9 +52,12 @@
             <%elsif current_user.role.name == "institute" %>
             <li> <%= button_to 'Listar Instituições', list_institutes_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; margin-right:100px;padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-88px; font-family:'Patua One', cursive; font-size:16px; margin-right: 260px" %> </li>
             <li><%= button_to "Administrar Página", menus_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-88px; font-family:'Patua One', cursive; font-size:16px; margin-right:90px" %></li>
+           <li style="margin-right:-80px">
+              <%= image_tag "#{current_user.page.logo.logo.url}", style: "height: 50px; width: 50px; margin-top:-90px; float:right; background-color: #FFF; border-radius: 30px; border: 3px solid; border-color: #c7c7c7"%>
+            </li>
             <% end %>
             <li><%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-88px; font-family:'Patua One', cursive; font-size:16px; margin-right:0px;") %>  </li>
-            <li style="color: white"> Logado como: <%= current_user.email%> </li>
+             
           <%else%>
           <li> <%= button_to 'Listar Instituições', list_institutes_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; margin-right:180px;padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-88px; font-family:'Patua One', cursive; font-size:16px;" %> </li>
           <li><%= button_to "Login", index_admin_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-88px; font-family:'Patua One', cursive; font-size:16px; margin-right:90px;"%></li>

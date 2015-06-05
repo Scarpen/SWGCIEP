@@ -47,17 +47,19 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-        <h1 class="brand" style="width:300px"><a><%= image_tag "logo2.png", style: "width: 50%; margin-top:-10px;" %></a></h1> 
+        <h1 class="brand" style="width:250px"><a><%= image_tag "logo2.png", style: "width: 50%; margin-top:-10px;" %></a></h1> 
         <nav class="pull-right nav-collapse collapse">
-          <ul id="menu-main" class="nav">
+          <ul id="menu-main" class="nav" style="width:500px;">
             <li style="margin-right:20px;"><%= button_to "Listar Instituições", list_institutes_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
             <% if current_user %>
             <%if current_user.role.name == "admin" %>
             <li style="margin-right:20px;"><%= button_to "Cadastrar Instituição", registration_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
             <%elsif current_user.role.name == "institute" %>
             <li style="margin-right:20px;"><%= button_to "Administrar Página", index_admin_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
+            <li style="margin-left:450px; position:fixed; margin-top:-7px;">
+              <%= image_tag "#{current_user.page.logo.logo.url}", style: "height: 50px; width: 50px; margin-top:0px; float:right; background-color: #FFF; border-radius: 30px; border: 3px solid; border-color: #c7c7c7"%>
+            </li>
             <%end%>
-            <li><%= current_user.email %> </li>
             <li><%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;") %></li>
             <% else %>
             <li><%= button_to "Login", login_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
