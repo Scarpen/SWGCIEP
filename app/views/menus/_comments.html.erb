@@ -45,7 +45,7 @@
                             </p>
                           </div>
                           <% if current_user && current_user.role.name == "admin" %>
-                          <p class="text-left"><%= link_to 'Apagar', respond, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-novobotao btn-sm" %></p>
+                          <p class="text-left"><%= link_to 'Apagar', respond, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-default btn-sm" %></p>
                           <% end %>
                         </div> 
                       </div>
@@ -63,7 +63,7 @@
                                 <p>
                                   <%= f.input :comment, as: :text, label: "Responder Comentário", input_html: {style: "resize: none"}, label_html: {style: "font-weight: bold;"} %>
                                   <%= f.input :father_id, as: :hidden, :input_html => {value: comment.id}%>
-                                  <%= f.submit "Responder Comentário", class: "btn btn-novobotao"  %>
+                                  <%= f.submit "Responder Comentário", class: "btn btn-default"  %>
                                 </p>
                               </div>
                             </div> 
@@ -87,7 +87,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Criar Comentário", class: "btn-novobotao"  %>
+        <%= f.button :submit, "Criar Comentário", class: "btn btn-default"  %>
 
       </div>
     </div>

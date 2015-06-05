@@ -2039,8 +2039,11 @@ fieldset[disabled] .btn {
 
 .btn-novobotao{
 background-color: #fff;
-
+border: 1px solid;
+color: #000;
 }
+
+
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,

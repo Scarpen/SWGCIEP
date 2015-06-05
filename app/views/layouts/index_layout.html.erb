@@ -89,8 +89,8 @@
     <div class="container">
       <div class="row">
         <div class="span12">
-          <h2>Pesquise a escola para o seu filho!</h2>
-          <%= f.input :search, label: false ,placeholder:"Nome da instituição", input_html: {class: "cform-text", size: "40"}, required: false %>
+          <h2 style="font-size:30px;">Pesquise a escola para o seu filho!</h2>
+          <%= f.input :search, label: false ,placeholder:"Nome da instituição", input_html: {class: "cform-text", size: "40", style:"border: 2px solid #cdcdcd"}, required: false %>
           <br>
           <div class="span3"></div>
           <div class="span2"> 
@@ -171,7 +171,18 @@
             <h2><b><%= @pages[0].user.name_institute %></b></h2>
           </hgroup>
           <div class="entry-content">
-            <p><%= @pages[0].recommends %> pessoas recomendaram</p>
+            <p><%= @pages[0].recommends.to_i %> pessoas recomendaram</p>
+             <%if @pages[0].menus.first.submenus.first == nil %>
+                    <td><%= button_to @pages[0].menus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do%>
+                            Mostrar Página
+                            <% end %>
+                            </td>
+
+                  <% else %>
+                    <td><%= button_to @pages[0].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do %>
+                                                  Mostrar Página
+                                                  <% end %></td>
+                  <% end %>        
             </div>
         </div>
       </div>
@@ -184,7 +195,18 @@
             <h2><b><%= @pages[1].user.name_institute %></b></h2>
           </hgroup>
           <div class="entry-content">
-           <p><%= @pages[1].recommends %> pessoas recomendaram</p>
+           <p><%= @pages[1].recommends.to_i %> pessoas recomendaram</p>
+                <%if @pages[1].menus.first.submenus.first == nil %>
+                    <td><%= button_to @pages[1].menus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do%>
+                            Mostrar Página
+                            <% end %>
+                            </td>
+
+                  <% else %>
+                    <td><%= button_to @pages[1].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do %>
+                                                  Mostrar Página
+                                                  <% end %></td>
+                  <% end %>        
             </div>
         </div>
       </div>
@@ -197,7 +219,18 @@
             <h2><b><%= @pages[2].user.name_institute %></b></h2>
           </hgroup>
           <div class="entry-content">
-            <p><%= @pages[2].recommends %> pessoas recomendaram</p>
+            <p><%= @pages[2].recommends.to_i %> pessoas recomendaram</p>
+            <%if @pages[2].menus.first.submenus.first == nil %>
+                    <td><%= button_to @pages[2].menus.first, method: :get, class: "btn  btn-small btn-default text-center", style: "height:45px" do%>
+                            Mostrar Página
+                            <% end %>
+                            </td>
+
+                  <% else %>
+                    <td><%= button_to @pages[2].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do %>
+                                                  Mostrar Página
+                                                  <% end %></td>
+                  <% end %>   
             </div>
         </div>
       </div>
