@@ -8,7 +8,7 @@
 
                         <div class="col-sm-4 col-md-3">
 
-                            <h4 class="search-results-title"><i class="soap-icon-search"></i><b><%= @institutes.size %></b> results found.</h4>
+                            <h4 class="search-results-title"><i class="soap-icon-search"></i><b><%= @institutes.size %></b> instituições.</h4>
                             <br>
                             <%= f.input :search,label:"Nome", input_html: { value: @filters[:search] } %>
                             <div class="toggle-container filters-container">
@@ -19,7 +19,7 @@
                                     <div id="bairro-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <ul class="check-square filters-option">
-                                                <li><%= f.input :neighborhood, as: :radio_buttons,label: false, collection: @neighborhoods, :checked => @filters[:neighborhood] %> </li>
+                                                <%= f.input :neighborhood, as: :radio_buttons,label: false, collection: @neighborhoods, :checked => @filters[:neighborhood] %>
                                               </ul>
                                         </div>
                                     </div>
@@ -32,7 +32,7 @@
                                     <div id="religiao-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <ul class="check-square filters-option">
-                                                <li>  <%= f.collection_radio_buttons :religion, [[0, 'Todos     '],[1, 'Catolico'],[2, 'Protestantes'],[3, 'Sem Classificacao']], :first, :last, :checked => @filters[:religion] %> </li>
+                                                  <%= f.collection_radio_buttons :religion, [[0, 'Todos     '],[1, 'Catolico'],[2, 'Protestantes'],[3, 'Sem Classificacao']], :first, :last, :checked => @filters[:religion] %> 
                                             </ul>
                                         </div>
                                     </div>
@@ -45,10 +45,10 @@
                                     <div id="school-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <ul class="check-square filters-option">
-                                                <li>  <%= f.input :elementary_school, as: :boolean, label: "1º ao 5º ano", input_html: {checked: verify_value(@filters[:elementary_school])} %>
+                                                <%= f.input :elementary_school, as: :boolean, label: "1º ao 5º ano", input_html: {checked: verify_value(@filters[:elementary_school])} %>
                                                       <%= f.input :middle_school, as: :boolean, label: "6º ao 9º ano", input_html: {checked: verify_value(@filters[:middle_school])} %>
                                                       <%= f.input :high_school, as: :boolean, label: "Ensino Medio", input_html: {checked: verify_value(@filters[:high_school])} %>
-                                                </li>
+                                            
                                             </ul>
                                         </div>
                                     </div>
@@ -61,12 +61,12 @@
                                     <div id="necessidade-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <ul class="check-square filters-option">
-                                                <li>      
+                                                     
                                                     <%= f.input :physical, as: :boolean, label: "Fisica", input_html: {checked: verify_value(@filters[:physical])} %>
                                                     <%= f.input :hearing, as: :boolean, label: "Auditivo", input_html: {checked: verify_value(@filters[:hearing])} %>
                                                     <%= f.input :mental, as: :boolean, label: "Mental", input_html: {checked: verify_value(@filters[:mental])} %>
                                                     <%= f.input :view, as: :boolean, label: "Visual", input_html: {checked: verify_value(@filters[:view])} %> 
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -112,6 +112,12 @@
 												<% else %>
 													<td><%= link_to "Mostrar Pagina", institute.page.menus.first.submenus.first, class: "button btn-small full-width text-center" %></td>
 												<% end %>             
+                                                <%if current_user %>
+                                                    <%if current_user.role.name == "admin" %>
+                                                        <td><%= link_to 'Apagar Instituição', institute, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "button btn-small full-width text-center" %></td>
+                                                    <% end %>
+                                                <% end %>
+
 
                                             </div>
                                         </div>
