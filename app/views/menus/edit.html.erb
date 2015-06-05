@@ -16,9 +16,13 @@
     <%= f.fields_for :photos do |builder| %>
       <%= render "photo_fields", :f => builder %>
     <% end %>
-    <p><%= link_to_add_association "Adicionar Foto", f, :photos %></p>
+    <div class="row">
+      <p><%= link_to_add_association "Adicionar Foto", f, :photos %></p>
     </div>
+    </div>
+        <div class="row">
 <%= f.submit %>
+</div>
 <% end %>
 
 
