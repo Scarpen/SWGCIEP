@@ -1,4 +1,18 @@
 <div class="col-md-3">
+	<div class = "row">
+	          <center>  <div style="font-weight:bold; width: 150px;" >
+              <%= @page.recommends.to_i  %> já recomendaram!
+              <% if @voted != true %>
+                <%= link_to action: "vote", controller: "pages", page: @page.id, menu: @menu.id do %>
+                  <div class="like-icon"> </div>
+                <% end %>
+              <% else %>
+                  <div class="like-icon2"> </div>
+                  <center>Você também!</center>
+              <% end %>
+            </div></center>
+    </div>
+    <br><br>
 	<div class="category_widget">
       <h3>Menu</h3>
       <ul class="list-unstyled arrow">

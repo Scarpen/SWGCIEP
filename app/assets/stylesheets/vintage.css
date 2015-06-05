@@ -16,4 +16,6 @@
  *= require jquery-ui
  *= require style3
  *= require_self
+ *= require like
  */
+
