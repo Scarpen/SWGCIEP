@@ -1649,7 +1649,6 @@ legend {
 label {
   display: inline-block;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -1993,9 +1992,11 @@ select[multiple].input-lg {
 .btn {
   display: inline-block;
   padding: 6px 12px;
+  background:#0b333f;
+  color:#000000;
   margin-bottom: 0;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.42857143;
   text-align: center;
   white-space: nowrap;
@@ -2009,24 +2010,17 @@ select[multiple].input-lg {
   border: 1px solid transparent;
   border-radius: 4px;
 }
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
+
 .btn:hover,
 .btn:focus {
-  color: #333;
+  color: #000000;
+  background:#ffffff;
   text-decoration: none;
 }
 .btn:active,
 .btn.active {
   background-image: none;
   outline: 0;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
 }
 .btn.disabled,
 .btn[disabled],
@@ -2039,18 +2033,21 @@ fieldset[disabled] .btn {
   opacity: .65;
 }
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  color: #ffffff;
+  background-color: #0b333f;
+}
+
+.btn-novobotao{
+background-color: #fff;
+
 }
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  color: #333;
-  background-color: #ebebeb;
-  border-color: #adadad;
+  color: #000000;
+  background-color: #ffffff;
 }
 .btn-default:active,
 .btn-default.active,
@@ -2122,8 +2119,8 @@ fieldset[disabled] .btn-primary.active {
 }
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+background-color: #0b333f;
+  border-color: #0b3333;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -2131,8 +2128,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-success.active,
 .open .dropdown-toggle.btn-success {
   color: #fff;
-  background-color: #47a447;
-  border-color: #398439;
+   background-color: #5a5a5a;
+  border-color: #c7c7c7;
 }
 .btn-success:active,
 .btn-success.active,
@@ -4262,7 +4259,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;
-  font-weight: bold;
   line-height: 1;
   color: #fff;
   text-align: center;

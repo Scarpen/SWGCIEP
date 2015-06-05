@@ -322,7 +322,7 @@ ul#menu-main > li > a:hover {
 	-webkit-border-radius: 3px;
 }
 #headerwrap input[type=submit]:hover, #headerwrap input[type=submit]:active {
-	background: #43413e !important;
+	background: #5a5a5a !important;
 }
 /*========== Social Icons ==========*/
 ul.icon {
@@ -349,7 +349,7 @@ section.single-page h1 {
 	font-size: 2.25em; /* 36px */
 }
 #feature {
-	background: url(image-path("yellow10.png")) repeat-x 0 0;
+	background: url(image-path("fundokawaii.png")) repeat-x 0 0;
 	height: 406px;
 	z-index: 500;
 	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.3);
@@ -773,7 +773,7 @@ footer p {
 ---------------------------------------------------------------------------------------------------------- */    
 .btn {
 	font-family: 'Patua One', cursive;
-	color: #fff;
+	color: #ffffff;
 	width: 185px;
 	height: 20px;
 	text-shadow: none;
@@ -784,7 +784,8 @@ footer p {
 	display: block;
 	border: 0;
 	text-transform: none;
-	background: #C7C7C7 !important;
+	background: #0b333f !important;
+	font-weight:bold;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -796,7 +797,7 @@ footer p {
 	color: #fff;
 }
 .btn:hover {
-	background: #312A1E !important;
+	background: #ffffff !important;
 }
 .navbar-inverse .btn-navbar {
 	width: auto;

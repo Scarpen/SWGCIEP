@@ -81,14 +81,27 @@
 <body>
     <!------------ Start Content ---------------->
 
-    <div class="navbar1 navbar-inverse1 navbar-fixed-top1">
+<div class="navbar1 navbar-inverse1 navbar-fixed-top1">
     <div class="navbar-inner1" style="background:#0b333f; height:76px;">
       <div class="container">
         <h1 class="brand1" style="color:#ffffff; text-decoration:none; font-family:'Patua One', cursive; "><a href="#top">Onde Estudar?</a></h1>
           <ul>
-           <li><%= button_to "Login", index_admin_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; width:58px;
-    padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px; float:right; margin-top:-50px; background:#c7c7c7; color:#ffffff; font-family:'Patua One', cursive; font-size:14px;"%></li>
-    
+
+        
+          <%if current_user %>
+            <%if current_user.role.name == "admin" %>
+            <li> <%= button_to 'Listar Instituições', list_institutes_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; margin-right:280px;padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-50px; font-family:'Patua One', cursive; font-size:16px;" %> </li>
+              <li><%= button_to "Cadastrar Instituição", registration_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;float:right; margin-top:-50px; font-family:'Patua One', cursive; font-size:16px; margin-right:90px;" %></li>
+            <%elsif current_user.role.name == "institute" %>
+            <li> <%= button_to 'Listar Instituições', list_institutes_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; margin-right:100px;padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-50px; font-family:'Patua One', cursive; font-size:16px; margin-right: 260px" %> </li>
+            <li><%= button_to "Administrar Página", menus_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-50px; font-family:'Patua One', cursive; font-size:16px; margin-right:90px" %></li>
+            <% end %>
+            <li><%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-50px; font-family:'Patua One', cursive; font-size:16px; margin-right:0px;") %>  </li>
+            <li style="color: white"> Logado como: <%= current_user.email%> </li>
+          <%else%>
+          <li> <%= button_to 'Listar Instituições', list_institutes_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; margin-right:180px;padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-50px; font-family:'Patua One', cursive; font-size:16px;" %> </li>
+          <li><%= button_to "Login", index_admin_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; margin-top:-50px; font-family:'Patua One', cursive; font-size:16px; margin-right:90px;"%></li>
+          <%end %>
           </ul>
       </div>
     </div>
@@ -96,11 +109,17 @@
        <div class="main"> 
          <div class="reservation_top">
            <div class="container">
-
-           	<%= image_tag "#{@page.logo.logo.url}", style: "float:left" %> <h1 style="margin-top:20px"> <%= @page.user.name_institute %> </h1>
+            <div class="row">
+            <%if @page.logo_config == nil || @page.logo_config == 1 || @page.logo_config == 2%>
+           	  <%= image_tag "#{@page.logo.logo.url}", style: "float:left; margin-right:20px" %>
+            <% end %>
+            <%if @page.logo_config == nil || @page.logo_config == 1 || @page.logo_config == 3%>
+              <center><h1 style="margin-top:20px; margin-left:20px; font-weight:bold;"> <%= @page.user.name_institute %> </h1></center>
+            <% end %>
            	<% if @page.header_config == nil || @page.header_config == 1 %>
-           	<%= image_tag "#{@page.header_url}", style: "width:100%" %>
+           	  <%= image_tag "#{@page.header_url}", style: "width:100%" %>
            	<% end %>
+           </div>
 <br>
 <br>
              <div class="row">
@@ -113,7 +132,7 @@
 					<% if @voted != true %>
 						<%= link_to "Recomendar Instituicao", {action: "vote", controller: "pages", page: @page.id, menu: @menu.id } %>
 					<% else %>
-						<p> Voce ja recomendou essa instituicao </p>
+						<p> Você já recomendou essa instituição </p>
 					<% end %>
             	</div>
             	<% if  @page.menu_config == 2 %>

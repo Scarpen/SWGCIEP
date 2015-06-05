@@ -21,8 +21,8 @@
                   <%= comment.comment %>
                 </p>
               </div>
-              <p class="text-left"><%= link_to 'Responder', comments_respond_menus_path(:father_id => comment.id, :menu_id => @menu.id), class: "btn btn-default btn-sm"  %></p>
-              <p class="text-left"><%= link_to 'Apagar', comment, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-default btn-sm" %></p>
+              <p class="text-left"><%= link_to 'Responder', comments_respond_menus_path(:father_id => comment.id, :menu_id => @menu.id), class: "btn btn-novobotao btn-sm"  %></p>
+              <p class="text-left"><%= link_to 'Apagar', comment, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-novobotao btn-sm" %></p>
             </div> 
           </div>
         </div>
@@ -43,7 +43,7 @@
                               <%= respond.comment %>
                             </p>
                           </div>
-                          <p class="text-left"><%= link_to 'Apagar', respond, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-default btn-sm" %></p>
+                          <p class="text-left"><%= link_to 'Apagar', respond, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-novobotao btn-sm" %></p>
                         </div> 
                       </div>
                     </div>
@@ -64,7 +64,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit  %>
+    <%= f.button :submit, "Criar Comentário", class: "btn-novobotao"  %>
 
   </div>
 <% end %>

@@ -50,13 +50,21 @@
         <h1 class="brand"><a href="#top">Onde Estudar?</a></h1>
         <nav class="pull-right nav-collapse collapse">
           <ul id="menu-main" class="nav">
+            <li style="margin-right:20px;"><%= button_to "Listar Instituições", list_institutes_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
             <% if current_user %>
+            <%if current_user.role.name == "admin" %>
+            <li style="margin-right:20px;"><%= button_to "Cadastrar Instituição", registration_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
+            <%elsif current_user.role.name == "institute" %>
+            <li style="margin-right:20px;"><%= button_to "Administrar Página", index_admin_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
+            <%end%>
             <li><%= current_user.email %> </li>
-            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+            <li><%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;") %></li>
             <% else %>
-            <li><%= button_to "Login", login_pages_path, method: :get, class: "btn btn-default", style:"height: 38px;
-    padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
+            <li><%= button_to "Login", login_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px;margin-top: 0px;"%></li>
             <% end %>
+
+            <ul>
+          </ul>
           </ul>
         </nav>
       </div>
@@ -112,7 +120,7 @@
     <div class="container">
       <div class="row">
           <div id="carousel-example-generic" class="carousel slide container-fluid" data-ride="carousel">    
-                <ol class="carousel-indicators" style="margin-left: -20px">
+                <ol class="carousel-indicators" style="position:relative; margin-left: 600px">
                   <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                   <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                   <li data-target="#carousel-example-generic" data-slide-to="2"></li>
@@ -123,23 +131,22 @@
                     <article>
                       <p>Quer procurar a escola perfeita para seus filhos?</p>
                       <p><b style="color: #000">Onde Estudar </b> pode te ajudar com isso!</p>
+                      
+                    </article>
+                </div>
+
+                <div class="item">
+                    <article>
+                      <p>Escolas de ensino médio e fundamental de Belém</p>
                       <p>Faça agora mesmo sua pesquisa!</p>
                     </article>
                 </div>
 
                 <div class="item">
                     <article>
-                      <p>Quer procurar a escola perfeita para seus filhos?</p>
-                      <p><b style="color: #000">Onde Estudar </b> pode te ajudar com isso!</p>
-                      <p>Faça agora mesmo sua pesquisa!</p>
-                    </article>
-                </div>
-
-                <div class="item">
-                    <article>
-                      <p>Quer procurar a escola perfeita para seus filhos?</p>
-                      <p><b style="color: #000">Onde Estudar </b> pode te ajudar com isso!</p>
-                      <p>Faça agora mesmo sua pesquisa!</p>
+                      <p>Dono ou representante de escolas de Belém!</p>
+                      <p><b style="color: #000">Onde Estudar </b> oferece a oportunidade de alavancagem de sua instituição.</p>
+                      
                     </article>
                 </div>
               </div>

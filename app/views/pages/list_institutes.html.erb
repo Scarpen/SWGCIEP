@@ -108,9 +108,9 @@
 
                                             <div>     
                                                 <%if institute.page.menus.first.submenus.first == nil %>
-													<td><%= link_to "Mostrar Pagina", institute.page.menus.first, class: "button btn-small full-width text-center"%></td>
+													<td><%= button_to "Mostrar Página", institute.page.menus.first, method: :get, class: "btn button btn-small full-width btn-novobotao text-center"%></td>
 												<% else %>
-													<td><%= link_to "Mostrar Pagina", institute.page.menus.first.submenus.first, class: "button btn-small full-width text-center" %></td>
+													<td><%= button_to "Mostrar Página", institute.page.menus.first.submenus.first, method: :get, class: "btn button btn-novobotao btn-small full-width text-center" %></td>
 												<% end %>             
 
                                             </div>

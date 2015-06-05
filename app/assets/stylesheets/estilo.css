@@ -634,7 +634,6 @@ select option {
     top: 3px;
     width: 14px;
     height: 14px;
-    border: 1px solid #d1d1d1;
     z-index: 0;
     font-family: "soap-icons";
     line-height: 12px;
@@ -648,8 +647,7 @@ select option {
 /* checkbox */
 .checkbox label, .checkbox.label {
   font-size: 1.0833em;
-  line-height: 20px;
-  color: #9e9e9e; }
+  line-height: 20px; }
 .checkbox input[type="checkbox"] {
   position: relative;
   z-index: 1;

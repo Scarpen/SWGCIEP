@@ -6,7 +6,7 @@
           	<% if m.submenus.first == nil %>
 				<li> <%= link_to "#{m.name}", m %> </li>
 			<% else %> 
-			<li > <a href="#" class="menu<%=m.id%>">  <%= m.name %> </a> </li>
+			<li > <a class="menu<%=m.id%>">  <%= m.name %> </a> </li>
 				<div id="submenus<%=m.id%>">
 				<% m.submenus.each do |sub|%>
 					<li style="margin-left: 20px;"> <%= link_to "#{sub.name}", sub %> </li>

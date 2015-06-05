@@ -8,6 +8,9 @@
 
           <h2> Header: </h2>
             <%= f.collection_radio_buttons :header_config, [[1, 'Mostrar'],[2, 'Esconder']], :first, :last, :checked => @page.header_config %>
+          <h2> Logo e Nome da Instituição: </h2>
+            <%= f.collection_radio_buttons :logo_config, [[1, 'Mostrar Ambos'],[2, 'Apenas Logo'], [3, 'Apenas Nome'], [4, 'Esconder Ambos']], :first, :last, :checked => @page.logo_config %>
+
 
           <p><%= f.submit "Submit" %></p>
         <% end %>

@@ -79,6 +79,9 @@ class PagesController < ApplicationController
     if @page.menu_config == nil
       @page.menu_config = 1
     end
+    if @page.logo_config == nil
+      @page.logo_config = 1
+    end
 
   end
 
