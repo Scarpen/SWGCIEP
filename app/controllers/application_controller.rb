@@ -32,6 +32,11 @@ protected
       if action_name == "new"
         "login_layout"
       end
+    elsif controller_name == "usuarios"
+      if action_name == "edit"
+        "list_layout"
+      end
+        
     else
       case action_name
         when "menus", "conteudo", "edit", "logo", "header", "index_admin", "conlayout"

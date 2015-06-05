@@ -21,8 +21,9 @@
                   <%= comment.comment %>
                 </p>
               </div>
-              <p class="text-left"><%= link_to 'Responder', comments_respond_menus_path(:father_id => comment.id, :menu_id => @menu.id), class: "btn btn-novobotao btn-sm"  %></p>
-              <p class="text-left"><%= link_to 'Apagar', comment, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-novobotao btn-sm" %></p>
+              <% if current_user && current_user.role.name == "admin" %>
+                <p class="text-left"><%= link_to 'Apagar', comment, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-novobotao btn-sm" %></p>
+                <% end %>
             </div> 
           </div>
         </div>
@@ -43,30 +44,53 @@
                               <%= respond.comment %>
                             </p>
                           </div>
+                          <% if current_user && current_user.role.name == "admin" %>
                           <p class="text-left"><%= link_to 'Apagar', respond, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-novobotao btn-sm" %></p>
+                          <% end %>
                         </div> 
                       </div>
                     </div>
                   </div>      
-        <% end %>
-      </div>
+              <% end %>
+              <% if current_user && current_user == @page.user %>
+                <%= simple_form_for(@comment, :url => comments_path(@comment, :menu_id => @menu.id ))  do |f| %>
+                      <div class="row" style="margin-left: 275px">
+                        <div class="col-md-9 col-sm-9">
+                          <div class="panel panel-default arrow left">
+                            <div class="panel-body">
+                              <div class="comment-post">
+                                <%= f.error_notification %>
+                                <p>
+                                  <%= f.input :comment, as: :text, label: "Responder Comentário", input_html: {style: "resize: none"}, label_html: {style: "font-weight: bold;"} %>
+                                  <%= f.input :father_id, as: :hidden, :input_html => {value: comment.id}%>
+                                  <%= f.submit "Responder Comentário", class: "btn btn-novobotao"  %>
+                                </p>
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                    </div>  
+                <% end %>
+              <% end %>
+          </div>
     <% end %>
 <%= simple_form_for(@comment, :url => comments_path(@comment, :menu_id => @menu.id))  do |f| %>
-  <%= f.error_notification %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="form-inputs">
+        <%= f.input :author, label: "Autor" %>
+        <%= f.input :comment, as: :text, label: "Comentário" %>
+        
+        <%= f.input :father_id, as: :hidden%>
+        <%= f.input :page_id, as: :hidden, input_html: {value: @page.id} %>
 
-  <div class="form-inputs">
-    <%= f.input :author, label: "Autor" %>
-    <%= f.input :comment, as: :text, label: "Comentário" %>
-    
-    <%= f.input :father_id, as: :hidden%>
-    <%= f.input :page_id, as: :hidden, input_html: {value: @page.id} %>
+      </div>
 
-  </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Criar Comentário", class: "btn-novobotao"  %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Criar Comentário", class: "btn-novobotao"  %>
-
-  </div>
+      </div>
+    </div>
 <% end %>
 </div>
 </div>

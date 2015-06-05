@@ -1,9 +1,8 @@
 <div class="row">
 <% @menu.photos.each do |photo| %>
-    <div class="col-md-2" style="height:150px">
-	 <a href="<%= photo.image_url(:big).to_s %>" rel="prettyPhoto[pp_gal]" title="<%= photo.description %>"><img src="<%= photo.image.small.url%>" /></a>
- 
-    </div>
+  <div class="col-xs-6 col-md-3">
+<a href="<%= photo.image_url(:big).to_s %>" class="thumbnail" rel="prettyPhoto[pp_gal]" title="<%= photo.description %>"><img src="<%= photo.image.small.url%>" /></a>
+  </div>
 <% end %>
 </div>
 <script type="text/javascript" charset="utf-8">

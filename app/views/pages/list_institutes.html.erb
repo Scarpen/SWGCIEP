@@ -103,18 +103,57 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa idend porta nequetiam elerisque mi id, consectetur adipi deese cing elit maus fringilla bibe endum.</p>
+                                            <p> <strong> Religião </strong>
+                                                <% if institute.religion == 1%>
+                                                Católico
+                                                <% elsif institute.religion == 2%>
+                                                Protestantes
+                                                <% else %>
+                                                Sem classificação
+                                                <% end %><br>
+
+                                                <strong> Escolaridades: </strong>
+                                                <% if institute.elementary_school == true%>
+                                                1º ao 5º ano /
+                                                <% end %>
+                                                <% if institute.middle_school == true%>
+                                                6º ao 9º ano
+                                                <% end %>
+                                                <% if institute.high_school == true%>
+                                                 / Ensino Médio
+                                                <% end %>
+                                                <br>
+                                                <strong> Necessidades Especiais: </strong>
+                                                <% if institute.physical == true%>
+                                                Fisica
+                                                <% end %>
+                                                <% if institute.hearing == true%>
+                                                 / Auditiva
+                                                <% end %>
+                                                <% if institute.mental == true%>
+                                                 / Mental
+                                                <% end %>
+                                                <% if institute.view == true%>
+                                                 / Visão
+                                                <% end %>
+
+
+                                           </p>
 
 
                                             <div>     
                                                 <%if institute.page.menus.first.submenus.first == nil %>
 													<td><%= button_to "Mostrar Página", institute.page.menus.first, method: :get, class: "btn button btn-small full-width btn-novobotao text-center"%></td>
 												<% else %>
-													<td><%= button_to "Mostrar Página", institute.page.menus.first.submenus.first, method: :get, class: "btn button btn-novobotao btn-small full-width text-center" %></td>
+													<td><%= link_to institute.page.menus.first.submenus.first, method: :get, class: "btn button btn-novobotao btn-small full-width text-center" do %>
+                                                        Button
+                                                        <% end %></td>
 												<% end %>             
                                                 <%if current_user %>
                                                     <%if current_user.role.name == "admin" %>
-                                                        <td><%= link_to 'Apagar Instituição', institute, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "button btn-small full-width text-center" %></td>
+                                                        <td><%= link_to "Apagar",usuario_path(institute), method: :delete, data:{confirm: 'Are You Sure?' }%></td>
+                                                        <td><%= link_to "Editar",edit_usuario_path(institute) %></td>
+
                                                     <% end %>
                                                 <% end %>
 

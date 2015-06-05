@@ -1,0 +1,80 @@
+<h2>Editar Instituicão</h2>
+
+<%= simple_form_for(@user, url: usuario_path) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :name_institute, required: true, label: "Nome da Instituição" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :neighborhood, required: true, label: "Bairro" %>
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <%= f.input :name_responsible, required: true, label: "Nome do Responsável" %>
+      </div>
+       
+       <div class="col-md-4">
+        <%= f.input :phone, label: "Telefone" %>
+      </div> 
+    </div>
+   <div class="row">
+    <div class="col-md-4">
+      <%= f.input :email, required: true, autofocus: true, label: "E-mail" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :password, required: true, label: "Senha" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.input :password_confirmation, required: true, label: "Confirmar Senha" %>
+      </div> 
+    </div> 
+      <%= f.input :role_id, as: :hidden, input_html: {value: "2"} %>
+    <div class="row">
+        <div class="col-md-4">
+        Escolaridade: 
+        <%= f.input :elementary_school, label: "1º ao 5º ano" %>
+        <%= f.input :middle_school, label: "6º ao 9º ano" %>
+        <%= f.input :high_school, label: "Ensino Médio" %>
+      </div> 
+      <div class="col-md-4">
+      Religião:<br>
+          <%= f.radio_button :religion, 1 %>
+          <%= f.label :religion, "Católico", :value => "1"  %>
+          
+          <br>
+          <%= f.radio_button :religion, 2 %>
+          <%= f.label :religion, "Protestantes", :value => "2" %>
+          
+          <br>
+          <%= f.radio_button :religion, 3 %>
+          <%= f.label :religion, "Sem Classificação", :value => "3" %>
+     </div>
+    <div class="col-md-4">
+      Portadores de Necessidades Especiais:
+      <div class="row">
+          <div class="col-md-4">
+          <%= f.input :physical, label: "Físico" %>
+          <%= f.input :hearing, label: "Auditivo" %>
+          </div>
+          <div class="col-md-4">
+          <%= f.input :mental, label: "Mental" %>
+          <%= f.input :view, label: "Visual" %>
+          </div>
+    </div>
+    </div> 
+    </div> 
+    
+
+  </div>
+  <br>
+  <br>
+<center>
+  <div class="form-actions" style="height:45px; width:360px;">
+    <%= f.button :submit, "Cadastrar", class:"btn btn-lg btn-success btn-block" %>
+  </div>
+</center>
+<% end %>

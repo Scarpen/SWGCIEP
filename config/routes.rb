@@ -20,8 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
-
-    
+  resources :usuarios
+  
   resources :menus do
     collection do
       get 'comments_respond'
@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   end
 
   resources :photos
-
   resources :texts do
     collection do
       get 'save_inline'
