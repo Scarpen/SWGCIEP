@@ -6,8 +6,14 @@ class ApplicationController < ActionController::Base
 before_action :configure_permitted_parameters, if: :devise_controller?
   layout :resolve_layout
 
-  # ...
-
+  def after_sign_in_path_for(resource)
+    sign_in_url = new_user_session_url
+    if request.referer == sign_in_url
+      super
+    else
+      index_admin_pages_path
+    end
+  end
 
 protected
 	def configure_permitted_parameters

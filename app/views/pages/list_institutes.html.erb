@@ -18,9 +18,9 @@
                                     </h4>
                                     <div id="bairro-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
-                                            <ul class="check-square filters-option">
+                                            
                                                 <%= f.input :neighborhood, as: :radio_buttons,label: false, collection: @neighborhoods, :checked => @filters[:neighborhood] %>
-                                              </ul>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -31,9 +31,22 @@
                                     </h4>
                                     <div id="religiao-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
-                                            <ul class="check-square filters-option">
-                                                  <%= f.collection_radio_buttons :religion, [[0, 'Todos     '],[1, 'Catolico'],[2, 'Protestantes'],[3, 'Sem Classificacao']], :first, :last, :checked => @filters[:religion] %> 
-                                            </ul>
+                                            
+                                                  <%= f.radio_button :religion, 0, :checked => @filters[:religion] == "0" %>
+                                                  <%= f.label :religion, "Todos", :value => "0"  %>
+                                                  
+                                                  <br>
+                                                  <%= f.radio_button :religion, 1, :checked => @filters[:religion] == "1" %>
+                                                  <%= f.label :religion, "Católico", :value => "1"  %>
+                                                  
+                                                  <br>
+                                                  <%= f.radio_button :religion, 2, :checked => @filters[:religion] == "2" %>
+                                                  <%= f.label :religion, "Protestantes", :value => "2" %>
+                                                  
+                                                  <br>
+                                                  <%= f.radio_button :religion, 3, :checked => @filters[:religion] == "3" %>
+                                                  <%= f.label :religion, "Sem Classificação", :value => "3" %>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -44,12 +57,12 @@
                                     </h4>
                                     <div id="school-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
-                                            <ul class="check-square filters-option">
+                                            
                                                 <%= f.input :elementary_school, as: :boolean, label: "1º ao 5º ano", input_html: {checked: verify_value(@filters[:elementary_school])} %>
                                                       <%= f.input :middle_school, as: :boolean, label: "6º ao 9º ano", input_html: {checked: verify_value(@filters[:middle_school])} %>
                                                       <%= f.input :high_school, as: :boolean, label: "Ensino Medio", input_html: {checked: verify_value(@filters[:high_school])} %>
                                             
-                                            </ul>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -60,19 +73,20 @@
                                     </h4>
                                     <div id="necessidade-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
-                                            <ul class="check-square filters-option">
+                                            
                                                      
                                                     <%= f.input :physical, as: :boolean, label: "Fisica", input_html: {checked: verify_value(@filters[:physical])} %>
                                                     <%= f.input :hearing, as: :boolean, label: "Auditivo", input_html: {checked: verify_value(@filters[:hearing])} %>
                                                     <%= f.input :mental, as: :boolean, label: "Mental", input_html: {checked: verify_value(@filters[:mental])} %>
                                                     <%= f.input :view, as: :boolean, label: "Visual", input_html: {checked: verify_value(@filters[:view])} %> 
                                                 
-                                            </ul>
+                                           
                                         </div>
                                     </div>
                                 </div>
                                 <br>
-                                <%= f.submit "Filtrar" %>
+                                <center><%= f.submit "Filtrar", class: "btn btn-lg btn-success btn-block", style:"height:45px; width:100px;"%></center>
+                                
                             </div>
                         </div>
                     </div>
@@ -99,7 +113,7 @@
                                                 <div class="five-stars-container">
                                                     <span class="five-stars" style="width: 80%;"></span>
                                                 </div>
-                                                <span class="review"><%= institute.page.recommends.to_i %> recomendacoes</span>
+                                                <span class="review"><%= institute.page.recommends.to_i %> recomendações</span>
                                             </div>
                                         </div>
                                         <div>
@@ -143,10 +157,14 @@
 
                                             <div>     
                                                 <%if institute.page.menus.first.submenus.first == nil %>
-													<td><%= button_to "Mostrar Página", institute.page.menus.first, method: :get, class: "btn button btn-small full-width btn-novobotao text-center"%></td>
+													<td><%= link_to institute.page.menus.first, method: :get, class: "btn button btn-small full-width btn-novobotao text-center" do%>
+                                                        Mostrar Página
+                                                        <% end %>
+                                                        </td>
+
 												<% else %>
 													<td><%= link_to institute.page.menus.first.submenus.first, method: :get, class: "btn button btn-novobotao btn-small full-width text-center" do %>
-                                                        Button
+                                                        Mostrar Página
                                                         <% end %></td>
 												<% end %>             
                                                 <%if current_user %>

@@ -105,12 +105,16 @@ class PagesController < ApplicationController
 
   def index_admin
     if current_user
-      @page = current_user.page
-      @count = 0
-      @page.comments.each do |comment|
-        if comment.father_id == nil
-          @count += 1
-        end
+      if current_user.role.name == "admin"
+        redirect_to root_path
+      else
+        @page = current_user.page
+        @count = 0
+        @page.comments.each do |comment|
+          if comment.father_id == nil
+            @count += 1
+          end
+      end
       end
     else
       redirect_to login_pages_path

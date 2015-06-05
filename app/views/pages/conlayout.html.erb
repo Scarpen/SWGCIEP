@@ -1,19 +1,90 @@
+<div class="panel panel-primary">
 <div class="container-fluid">
   <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-md-12">
-      <h2 style="text-align: center;"> Gerenciar Menu </h2>
+<h1 style="margin-top:40px; color:#000000;"><b>Gerenciar Layout</b></h1>
         <%= simple_form_for @page do |f| %>  
-          <h2> Posicao do Menu: </h2>
-            <%= f.collection_radio_buttons :menu_config, [[1, 'Esquerdo'],[2, 'Direito']], :first, :last, :checked => @page.menu_config %>
+          <h2 style="color: #000"> Posição do Menu: </h2>
+              <div class="row" >
+                <br>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                <%= image_tag "menuesquerdo.png" %>
+                <br>
+                <%= f.radio_button :menu_config, 1, :checked => @page.menu_config == 1%>
+                <%= f.label :menu_config, "Esquerdo", :value => "1"  %>
+                </div>
+                <div class="col-md-3">
+                <%= image_tag "menudireito.png"%>
+                <br>
+                <%= f.radio_button :menu_config, 2, :checked => @page.menu_config == 2%>
+                <%= f.label :menu_config, "Direito", :value => "2" %>
+                </div>
+                <div class="col-md-3"></div>
+              </div>
+          <h2 style="color: #000"> Header: </h2>
+              <div class="row" >
+                <br>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                  <%= image_tag "comheader.png" %>
+                  <br>
+                  <%= f.radio_button :header_config, 1, :checked => @page.header_config == 1%>
+                  <%= f.label :header_config, "Mostrar", :value => "1"  %>
+                </div>
+                <div class="col-md-3">
+                  <%= image_tag "semheader.png"%>
+                  <br>
+                  <%= f.radio_button :header_config, 2, :checked => @page.header_config == 2%>
+                  <%= f.label :header_config, "Esconder", :value => "2" %>
+                </div>
+                <div class="col-md-3"></div>
+              </div>
 
-          <h2> Header: </h2>
-            <%= f.collection_radio_buttons :header_config, [[1, 'Mostrar'],[2, 'Esconder']], :first, :last, :checked => @page.header_config %>
-          <h2> Logo e Nome da Instituição: </h2>
-            <%= f.collection_radio_buttons :logo_config, [[1, 'Mostrar Ambos'],[2, 'Apenas Logo'], [3, 'Apenas Nome'], [4, 'Esconder Ambos']], :first, :last, :checked => @page.logo_config %>
+              <br>
 
 
-          <p><%= f.submit "Submit" %></p>
+          <h2 style="color: #000"> Logo e Nome da Instituição: </h2>
+            <div class="row">
+              <br>
+              <div class="col-md-3"></div>
+              <div class="col-md-3">
+                  <%= image_tag "menuesquerdo.png" %>
+                  <br>
+                  <%= f.radio_button :logo_config, 1, :checked => @page.logo_config == 1%>
+                  <%= f.label :logo_config, "Mostrar Ambos", :value => "1"  %>
+              </div>
+                <div class="col-md-3">
+                  <%= image_tag "semtitulo.png" %>
+                  <br>
+                  <%= f.radio_button :logo_config, 2, :checked => @page.logo_config == 2%>
+                  <%= f.label :logo_config, "Apenas Logo", :value => "2" %>
+                </div>
+            </div>
+            <div class="row"> 
+              <br>
+               <div class="col-md-3"></div>
+                <div class="col-md-3">
+                  <%= image_tag "semlogo.png"%>
+                  <br>
+                  <%= f.radio_button :logo_config, 3, :checked => @page.logo_config == 3%>
+                  <%= f.label :logo_config, "Apenas Nome", :value => "3"  %>
+                </div>
+                <div class="col-md-3">
+                <%= image_tag "semlogotitulo.png"%>
+                    <br>
+                <%= f.radio_button :logo_config, 4, :checked => @page.logo_config == 4%>
+                <%= f.label :logo_config, "Esconder Ambos", :value => "4" %>
+                </div>
+                <div class="col-md-3"></div>
+              </div>
+              <br>
+                <center> <p><%= f.submit "Salvar", class: "btn btn-lg btn-success btn-block", style:"height:45px; width:130px;" %></p></center>
+            </div>
+
         <% end %>
     </div>
   </div>
+</div>
+<br><br><br>
 </div>
