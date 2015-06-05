@@ -99,7 +99,7 @@
                                                 <div class="five-stars-container">
                                                     <span class="five-stars" style="width: 80%;"></span>
                                                 </div>
-                                                <span class="review"><%= institute.page.recommends.to_i %> recomendacoes</span>
+                                                <span class="review"><%= institute.page.recommends.to_i %> recomendações</span>
                                             </div>
                                         </div>
                                         <div>
@@ -114,7 +114,7 @@
 												<% end %>             
                                                 <%if current_user %>
                                                     <%if current_user.role.name == "admin" %>
-                                                        <td><%= link_to 'Apagar Instituição', institute, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "button btn-small full-width text-center" %></td>
+                                                        
                                                     <% end %>
                                                 <% end %>
 

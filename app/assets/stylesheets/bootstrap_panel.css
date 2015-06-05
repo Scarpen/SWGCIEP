@@ -2857,9 +2857,9 @@ fieldset[disabled] .btn {
   opacity: .65;
 }
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0b333f;
 }
 .btn-default:hover,
 .btn-default:focus,

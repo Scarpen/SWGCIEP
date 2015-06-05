@@ -1,9 +1,10 @@
+<div class="panel panel-primary">
 <div class="container-fluid">
   <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-md-12">
-      <h2 style="text-align: center;"> Gerenciar Menu </h2>
+<h1 style="margin-top:40px; color:#000000;"><b>Gerenciar Layout</b></h1>
         <%= simple_form_for @page do |f| %>  
-          <h2> Posicao do Menu: </h2>
+          <h2> Posição do Menu: </h2>
             <%= f.collection_radio_buttons :menu_config, [[1, 'Esquerdo'],[2, 'Direito']], :first, :last, :checked => @page.menu_config %>
 
           <h2> Header: </h2>
@@ -12,8 +13,10 @@
             <%= f.collection_radio_buttons :logo_config, [[1, 'Mostrar Ambos'],[2, 'Apenas Logo'], [3, 'Apenas Nome'], [4, 'Esconder Ambos']], :first, :last, :checked => @page.logo_config %>
 
 
-          <p><%= f.submit "Submit" %></p>
+         <center> <p><%= f.submit "Salvar", class: "btn btn-lg btn-success btn-block", style:"height:45px; width:130px;" %></p></center>
         <% end %>
     </div>
   </div>
+</div>
+<br><br><br>
 </div>

@@ -20,7 +20,9 @@
 		  		<%= render 'submenu_fields', :f => submenu %>
 			<% end %>
 	        <div class="col-md-4">
-	        	<%= link_to_add_association " ", f, :submenus, class: "btn btn-primary btn-block glyphicon glyphicon-plus" %>
+	        	                <%= link_to_add_association  f, :submenus do %>
+                <%=image_tag("previewkawaii.png")%>
+                <%end%>
 	        </div>
 	        <end%>
 	      </div>

@@ -39,32 +39,30 @@
     <%= javascript_include_tag "application" %>
   </head>
 <body>
-  <div class="navbar1 navbar-inverse1 navbar-fixed-top1">
+  
+  <div class="navbar1 navbar-inverse1 navbar-fixed-top1" >
     <div class="navbar-inner1">
       <div class="container1">
-        <h1 class="brand1"><a href="#top">Onde Estudar?</a></h1>
-          <ul>
-            <li><a title="contact" href="#contact">Login</a></li>
+        <h1 class="brand1" style="height:76px;"><a href="#top">Onde Estudar?</a></h1>
+          <ul style="list-style-type:none; color:#ffffff; margin-right:180px;">
+
+        
+          <%if current_user %>
+          <li><%= button_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; font-family:'Patua One', cursive; font-size:16px; margin-right:-10px; margin-top:-65px;") %>  </li>
+            <%if current_user.role.name == "institute" %>
+            <li><%= button_to "Visitar Página", menus_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; font-family:'Patua One', cursive; font-size:16px; margin-right:260px; margin-top:-65px" %></li>
+            <li> <%= button_to 'Listar Instituições', list_institutes_pages_path,method: :get, class: "btn btn-default", style:"height: 38px;padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; font-family:'Patua One', cursive; font-size:16px; margin-right: 90px; margin-top:-65px;" %> </li>
+            <% end %>
+            
+            <!--<li style="color: white"> Logado como: <%= current_user.email%> </li>-->
+          <%else%>
+          <li> <%= button_to 'Listar Instituições', list_institutes_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; margin-right:0px;padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; font-family:'Patua One', cursive; font-size:16px; margin-top:-30px;" %> </li>
+          <li><%= button_to "Login", index_admin_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; font-family:'Patua One', cursive; font-size:16px; margin-right:0px; margin-top:-30px;"%></li>
+          <%end %>
           </ul>
       </div>
     </div>
-   <!-- <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"> Último acesso : 15 de Maio de 2015 &nbsp; <a href="login.html" class="btn btn-danger square-btn-adjust">Logout</a> </div>-->
-  </div>
-        <!--<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Onde Estudar?</a> 
-            </div>
-  
-        </nav>  
+
            <!-- /. NAV TOP  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
