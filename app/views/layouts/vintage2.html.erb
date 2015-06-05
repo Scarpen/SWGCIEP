@@ -100,8 +100,6 @@
               <%= image_tag "#{@page.logo.logo.url}", style: "height: 50px; width: 50px; margin-top:-68px; float:right; background-color: #FFF; border-radius: 30px; border: 3px solid; border-color: #c7c7c7"%>
             </li>
             <% end %>
-            
-            <li style="color: white"> Logado como: <%= current_user.email%> </li>
           <%else%>
           <li> <%= button_to 'Listar Instituições', list_institutes_pages_path,method: :get, class: "btn btn-default", style:"height: 38px; margin-right:0px;padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; font-family:'Patua One', cursive; font-size:16px; margin-top:-68px;" %> </li>
           <li><%= button_to "Login", index_admin_pages_path, method: :get, class: "btn btn-default", style:"height: 38px; padding-bottom: 0px;margin-bottom: 0px;padding-top: 0px; float:right; font-family:'Patua One', cursive; font-size:16px; margin-right:0px; margin-top:-68px;"%></li>
@@ -115,7 +113,22 @@
        <div class="main"> 
          <div class="reservation_top">
            <div class="container">
+            <div style="font-weight:bold; width: 150px; float:right" >
+              <center><%= @page.recommends  %> já recomendaram!</center>
+              <% if @voted != true %>
+                <%= link_to action: "vote", controller: "pages", page: @page.id, menu: @menu.id do %>
+                  <div class="like-icon"> </div>
+                <% end %>
+              <% else %>
+                  <div class="like-icon2"> </div>
+                  <center>Você também!</center>
+              <% end %>
+            </div>
+
             <div class="row">
+
+            
+
             <%if @page.logo_config == nil || @page.logo_config == 1 || @page.logo_config == 2%>
            	  <%= image_tag "#{@page.logo.logo.url}", style: "float:left; margin-right:20px" %>
             <% end %>
@@ -134,12 +147,6 @@
              	<% end %>
             	<div class="col-md-9">
             		<%= yield %>
-            		<%= @page.recommends %>
-					<% if @voted != true %>
-						<%= link_to "Recomendar Instituicao", {action: "vote", controller: "pages", page: @page.id, menu: @menu.id } %>
-					<% else %>
-						<p> Você já recomendou essa instituição </p>
-					<% end %>
             	</div>
             	<% if  @page.menu_config == 2 %>
              		<%= render 'layouts/menu'%>
