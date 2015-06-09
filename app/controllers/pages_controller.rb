@@ -104,7 +104,6 @@ class PagesController < ApplicationController
   end
 
   def index_admin
-    if current_user
       if current_user.role.name == "admin"
         redirect_to root_path
       else
@@ -115,10 +114,8 @@ class PagesController < ApplicationController
             @count += 1
           end
       end
-      end
-    else
-      redirect_to login_pages_path
-    end
+
+  end
 
   end
 

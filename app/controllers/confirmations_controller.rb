@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class ConfirmationsController < Devise::ConfirmationsController 
   def create
     super
       page = Page.new

@@ -165,23 +165,23 @@
     <div class="row">
       <% if @pages[0].present?%>
       <div class="span4">
-        <div class="mask2" style="height:224px; width:377px; transform: translateY( 25% );"> <img src="<%= @pages[0].logo.logo_full.url%>" alt=""></div>
+        <div class="mask2" style="height:224px; width:377px"> <img src="<%= @pages[0].logo.logo_full.url%>" alt=""></div>
         <div class="inside">
           <hgroup>
             <h2><b><%= @pages[0].user.name_institute %></b></h2>
           </hgroup>
-          <div class="entry-content">
+          <div class="entry-content" style="padding:0px;">
             <p><%= @pages[0].recommends.to_i %> pessoas recomendaram</p>
              <%if @pages[0].menus.first.submenus.first == nil %>
-                    <td><%= button_to @pages[0].menus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do%>
+                    <td><%= button_to @pages[0].menus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px; padding:0px;" do%>
                             Mostrar Página
                             <% end %>
                             </td>
 
                   <% else %>
-                    <td><%= button_to @pages[0].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do %>
-                                                  Mostrar Página
-                                                  <% end %></td>
+                    <td><%= button_to @pages[0].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px; padding:0px;" do %>
+                      Mostrar Página
+                      <% end %></td>
                   <% end %>        
             </div>
         </div>
@@ -189,7 +189,7 @@
       <% end %>
       <% if @pages[1].present? %>
       <div class="span4">
-        <div class="mask2" style="height:224px; width:377px; transform: translateY( 25% );"> <img src="<%= @pages[1].logo_url%>" alt=""></div>
+        <div class="mask2" style="height:224px; width:377px"> <img src="<%= @pages[1].logo.logo_full.url%>" alt=""></div>
         <div class="inside">
           <hgroup>
             <h2><b><%= @pages[1].user.name_institute %></b></h2>
@@ -197,15 +197,15 @@
           <div class="entry-content">
            <p><%= @pages[1].recommends.to_i %> pessoas recomendaram</p>
                 <%if @pages[1].menus.first.submenus.first == nil %>
-                    <td><%= button_to @pages[1].menus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do%>
+                    <td><%= button_to @pages[1].menus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px; padding:0px;" do%>
                             Mostrar Página
                             <% end %>
                             </td>
 
                   <% else %>
-                    <td><%= button_to @pages[1].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do %>
-                                                  Mostrar Página
-                                                  <% end %></td>
+                    <td><%= button_to @pages[1].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px; padding:0px;" do %>
+                      Mostrar Página
+                      <% end %></td>
                   <% end %>        
             </div>
         </div>
@@ -213,7 +213,7 @@
       <% end %>
       <% if @pages[2].present? %>
       <div class="span4">
-        <div class="mask2" style="height:224px; width:377px; transform: translateY( 25% );"> <img src="<%= @pages[2].logo_url%>" alt=""></div>
+        <div class="mask2" style="height:224px; width:377px;"> <img src="<%= @pages[2].logo.logo_full.url%>" alt=""></div>
         <div class="inside">
           <hgroup>
             <h2><b><%= @pages[2].user.name_institute %></b></h2>
@@ -221,13 +221,13 @@
           <div class="entry-content">
             <p><%= @pages[2].recommends.to_i %> pessoas recomendaram</p>
             <%if @pages[2].menus.first.submenus.first == nil %>
-                    <td><%= button_to @pages[2].menus.first, method: :get, class: "btn  btn-small btn-default text-center", style: "height:45px" do%>
+                    <td><%= button_to @pages[2].menus.first, method: :get, class: "btn  btn-small btn-default text-center", style: "height:45px; padding:0px;" do%>
                             Mostrar Página
                             <% end %>
                             </td>
 
                   <% else %>
-                    <td><%= button_to @pages[2].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px" do %>
+                    <td><%= button_to @pages[2].menus.first.submenus.first, method: :get, class: "btn btn-default btn-small text-center", style: "height:45px; padding:0px;" do %>
                                                   Mostrar Página
                                                   <% end %></td>
                   <% end %>   
